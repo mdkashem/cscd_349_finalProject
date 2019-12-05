@@ -1,0 +1,51 @@
+
+
+public class Room extends Dungeon{
+
+	//private char door;
+	
+	
+	
+	
+	public void healingChance() {
+		if (Math.random() <= .4) {
+			this.setHealingPotion(this.getHealingPotion());
+		}
+	}
+
+	public void setRoom() {
+		
+	}
+	
+
+	public String toString() {
+		char randomChar = 'x';
+		return "* - *" + "\n" + "| " + randomChar + " |" + "\n" + "* - *";
+		
+	}
+	
+	public boolean hasPillar() {
+		if(this.getPillar() != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean hasEntrance() {
+		if(this.getEntrance() != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean hasExit() {
+		if(this.getExit() != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
+}
