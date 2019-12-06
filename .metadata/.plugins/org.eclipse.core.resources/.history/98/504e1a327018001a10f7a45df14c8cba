@@ -44,13 +44,8 @@ public class Dungeon {
 	
 	
 	public static void createDungeon() {
-		
     	Room[][] dungeon = new Room[5][5];
-    	for(int row = 0; row < dungeon.length; row++) {
-    		for(int col = 0; col < dungeon.length; col++) {
-    			Room room = new Room();
-    		}
-    	}
+    	dungeon[0][0] = new Room();
     
     }
 	
@@ -122,21 +117,12 @@ public class Dungeon {
 			  } 
 		  return false;
 	  }
-	  
-	  public String location() {
-		  
-	  }
 	
 	
 	
 	public String toString() {
-		
-		
-		for(int row = 0; row < dungeon.length; row++) {
-    		for(int col = 0; col < dungeon.length; col++) {
-    			
-    		}
-    	}
+		Room[][] array = new Room[5][5];
+		System.out.println(Arrays.deepToString(array));
 		
 		return "test";
 	}

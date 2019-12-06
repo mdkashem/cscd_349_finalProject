@@ -7,6 +7,8 @@ public class Room {
 	private Object pit;
 	
 	
+
+	
 	public Room() {
 	}
 	
@@ -71,14 +73,8 @@ public class Room {
 		  return false;
 	  }
 	  
-	  public boolean hasExit() {
-		  if(this.getExit() != null) {
-			  return true;
-		  }
-		  return false; 
-	  }
-	  
-	  
+	  public boolean hasExit() { if(this.getExit() != null) { return true; } return
+	  false; }
 	 
 	
 	
