@@ -1,7 +1,10 @@
 
-
 public class RoomFactory {
 	
-	private Map<Room, 
+	public Room createRoom() {
+		Room room = null;
+		
+	}
+	
 
 }
