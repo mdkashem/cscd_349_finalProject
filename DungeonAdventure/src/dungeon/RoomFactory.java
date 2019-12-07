@@ -1,0 +1,12 @@
+package dungeon;
+
+
+public class RoomFactory {
+	
+	public Room createRoom() {
+		Room room = null;
+		
+	}
+	
+
+}
