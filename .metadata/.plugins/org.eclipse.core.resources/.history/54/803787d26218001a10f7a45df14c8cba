@@ -1,0 +1,8 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class RoomFactory {
+	
+	private Map<Room, 
+
+}

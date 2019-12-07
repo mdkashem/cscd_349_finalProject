@@ -1,0 +1,14 @@
+
+public class Door {
+
+	private Door door;
+	
+	public Door() {
+		
+	}
+	
+	public Door isDoor() {
+		return this.door;
+	}
+	
+}
