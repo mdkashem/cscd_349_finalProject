@@ -1,21 +1,8 @@
 package dungeon;
-
-
-
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
-
-
-
 	public class Dungeon {
-
-	
-
-
-	
-
 
 	public Dungeon(int row, int col) {
 		Room[][] dungeon = new Room[row][col];
@@ -194,10 +181,6 @@ import java.util.Random;
 		
 
 	}
-
-	
-
-	
 
 	 
 	  public String location() {

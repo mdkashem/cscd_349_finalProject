@@ -11,7 +11,9 @@ public class HeroFactory {
 		System.out.println("Choose a hero:\n" +
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
-						   "3. Thief");
+						   "3. Thief\n" +
+						   "4. King Khan\n" +
+						   "5. Big Boss");
 		 input = new Scanner(System.in);
 		choice = input.nextInt();
 		Hero hero = null;
@@ -23,6 +25,12 @@ public class HeroFactory {
 			return hero;
 		}else if(choice == 3){
 			hero = new Thief();
+			return hero;
+		}else if(choice == 4){
+			hero = new KingKhan();
+			return hero;
+		}else if(choice == 5){
+			hero = new BigBoss();
 			return hero;
 		}else{
 			System.out.println("invalid choice, returning Thief");

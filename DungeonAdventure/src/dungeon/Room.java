@@ -1,10 +1,6 @@
-//<<<<<<< HEAD:DungeonAdventure/src/Room.java
+
 package dungeon;
 import java.util.*;
-
-
-//>>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Room.java
-
 public class Room {
 
 		//Monster == 1
