@@ -1,7 +1,7 @@
 
 public class MonsterFactory {
 	
-	public Monster generateMonster(){
+	public static Monster generateMonster(){
 		int choice;
 
 		choice = (int)(Math.random() * 3) + 1;

@@ -1,0 +1,55 @@
+import java.util.Random;
+
+public class Room extends Dungeon{
+
+	
+	
+	
+	public Room(int row, int col) {
+		super(row, col);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public void spawnHeal() {
+		if (Math.random() <= .1) {
+			this.setHealingPotion(1);
+		}
+		this.setHealingPotion(0);
+	}
+	
+	public void spawnPit() {
+		if (Math.random() <= .1) {
+			this.setPit(4);
+		}
+		this.setPit(0);
+	}
+	
+	public void spawnMonster() {
+		if(Math.random() <= .1) {
+			
+		}
+	}
+
+	public String toString() {
+		char randomChar = 'x';
+		String top = "*";
+		String middle = "";
+		String bottom = "*";
+		
+		
+		
+		
+		return "* - *" + "\n" + "| " + randomChar + " |" + "\n" + "* - *";
+		
+	}
+	
+	
+	  
+	  
+	 
+	
+	
+	
+	
+}

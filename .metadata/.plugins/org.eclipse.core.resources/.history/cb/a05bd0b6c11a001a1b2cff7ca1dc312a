@@ -1,0 +1,95 @@
+
+
+public class Room {
+
+	private int pillar;
+	private int healingPotion;
+	private Object pit;
+	
+	
+	public Room() {
+	}
+	
+	public int getHealingPotion() {
+		return healingPotion;
+	}
+
+	public void setHealingPotion(int healingPotion) {
+		this.healingPotion = healingPotion;
+	}
+
+	public Object getPit() {
+		return pit;
+	}
+
+	public void setPit(Object pit) {
+		this.pit = pit;
+	}
+	
+	public int getPillar() {
+		return pillar;
+	}
+	
+	public void setPillar(int pillar) {
+		this.pillar = pillar;
+	}
+
+	public int spawnHeal() {
+		if (Math.random() <= .4) {
+			return 1;
+		}
+		return 0;
+	}
+	
+	public int spawnPillar() {
+		if(this.hasPillar()) {
+			return 0;
+		}
+		return 1;
+	}
+	
+
+	public String toString() {
+		char randomChar = 'x';
+		String top = "*";
+		String middle = "";
+		String bottom = "*";
+		
+		
+		
+		
+		return "* - *" + "\n" + "| " + randomChar + " |" + "\n" + "* - *";
+		
+	}
+	
+	public boolean hasPillar() {
+		if(this.getPillar() != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	  public boolean hasEntrance() { 
+		  if(this.getEntrance() != null) {
+			  return true;
+		  } 
+		  return false;
+	  }
+	  
+	  public boolean hasExit() {
+		  if(this.getExit() != null) {
+			  return true;
+		  }
+		  return false; 
+	  }
+	  
+	  
+	 
+	
+	
+	
+	
+}

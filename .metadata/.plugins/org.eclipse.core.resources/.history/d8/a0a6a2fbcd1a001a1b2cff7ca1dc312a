@@ -1,0 +1,72 @@
+import java.util.Random;
+
+public class Room extends Dungeon{
+
+	
+	
+	
+	public Room(int row, int col) {
+		super(row, col);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public void spawnHeal() {
+		if (Math.random() <= .1) {
+			this.setHealingPotion(1);
+		}
+		this.setHealingPotion(0);
+	}
+	
+	public void spawnPit() {
+		if (Math.random() <= .1) {
+			this.setPit(4);
+		}
+		this.setPit(0);
+	}
+	
+	public void spawnMonster() {
+		if(Math.random() <= .1) {
+			
+		}
+	}
+	
+//	public void spawnPillar(Dungeon[][] dungeon) {
+//		int row;
+//		int col;
+//		int count = 0;
+//		
+//		while(count != 4) {
+//			if(dungeon[row][col].hasPillar() || dungeon[row][col].hasEntrance() || dungeon[row][col].hasExit()) {
+//				row = new Random().nextInt(6);
+//				col = new Random().nextInt(6);
+//			}
+//			dungeon[row][col].getPillar();
+//			count++;
+//		}
+//		
+//	}
+	
+
+	public String toString() {
+		char randomChar = 'x';
+		String top = "*";
+		String middle = "";
+		String bottom = "*";
+		
+		
+		
+		
+		return "* - *" + "\n" + "| " + randomChar + " |" + "\n" + "* - *";
+		
+	}
+	
+	
+	  
+	  
+	 
+	
+	
+	
+	
+}

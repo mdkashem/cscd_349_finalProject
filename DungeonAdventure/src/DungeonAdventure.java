@@ -59,6 +59,7 @@ public class DungeonAdventure
 		Hero theHero;
 		Monster theMonster;
 		
+		Dungeon dungeon = new Dungeon(5,5);
 		
 		
 		

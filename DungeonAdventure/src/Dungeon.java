@@ -4,12 +4,11 @@
 
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Dungeon {
 	
-	private Room entrance;
-	private Room exit;
 	
 	
 	
@@ -17,65 +16,49 @@ public class Dungeon {
 	
 	
 	
-	public Object getEntrance() {
-		return entrance;
-	}
+	
+	
+	
+	
+	
+	
+	
 
-	public void setEntrance() {
+	
+	
+	
+
+	
+
+	public Dungeon(int row, int col) {
+		Room[][] dungeon = new Room[row][col];
 		
-	}
-
-	public Object getExit() {
-		return exit;
-	}
-
-	public void setExit(int[][] exit) {
-		this.exit = exit;
-	}
-
-	
-
-	public Dungeon(Room[][] dungeon) {
-		//dungeon.createDungeon();
-		 dungeon = new Room[5][5];
+		
+	    
+    	for(int row1 = 0; row1 < col; row1++) {
+    		for(int col1 = 0; col1 < row; col1++) {
+    			dungeon[row1][col1] = new Room(0,0,0,0);
+    		}
+    	}
+    	
+    	dungeon.toString();
+    	int randoRow = new Random().nextInt(5);
+    	int randoCol = new Random().nextInt(5);
+    	int count = 0;
+    	
+    	while(count != 4) {
+			if(dungeon[randoRow][randoCol].hasPillar() || dungeon[randoRow][randoCol].hasEntrance() || dungeon[randoRow][randoCol].hasExit()) {
+				randoRow = new Random().nextInt(5);
+				randoCol = new Random().nextInt(5);
+			}
+			dungeon[randoRow][randoCol].setPillar(10);
+			count++;
+		}
     	
 	}
 	
-	
-	
-	public static void createDungeon() {
-		
-    	Room[][] dungeon = new Room[5][5];
-    	for(int row = 0; row < dungeon.length; row++) {
-    		for(int col = 0; col < dungeon.length; col++) {
-    			Room room = new Room();
-    		}
-    	}
-    
-    }
-	
-	public void setSpawn(Room[][] entrance) {
-		//this is to make sure that the entrance is placed on the border
-		//of the dungeon, and not in the middle.
-		int border = new Random().nextInt(5);
-		int randoEntry = new Random().nextInt(6);
-		//int randoExit = new Random().nextInt(6);
-		
-		
-		
-		if(border == 0) {
-			entrance[0][randoEntry].getEntrance();
-		}
-		else if(border == 1) {
-			entrance[randoEntry][0].getEntrance();
-		}
-		else if(border == 2) {
-			entrance[5][randoEntry].getEntrance();
-		}
-		else {
-			entrance[randoEntry][5].getEntrance();
-		}
-		
+	public boolean isDoor(int wall) {
+		return wall == 1;
 	}
 	
 	public void setExitDoor(Room[][] exit) {
@@ -92,9 +75,9 @@ public class Dungeon {
 		}
 	}
 	
-	public void placePillar(Room[][] room) {
-		int row = new Random().nextInt(6);
-		int col = new Random().nextInt(6);
+	public void spawnPillar(Room[][] room) {
+		int row = 0;
+		int col = 0;
 		int count = 0;
 		
 		while(count != 4) {
@@ -109,22 +92,9 @@ public class Dungeon {
 	}
 	
 	
-	  public boolean hasEntrance() { 
-		  if(this.getEntrance() != null) {
-			  return true;
-		  } 
-		  return false;
-	  }
-	  
-	  public boolean hasExit() {
-		  if(this.getExit() != null) {
-			  return true; 
-			  } 
-		  return false;
-	  }
-	  
+	 
 	  public String location() {
-		  
+		  return "";
 	  }
 	
 	
@@ -132,14 +102,11 @@ public class Dungeon {
 	public String toString() {
 		
 		
-		for(int row = 0; row < dungeon.length; row++) {
-    		for(int col = 0; col < dungeon.length; col++) {
-    			
-    		}
-    	}
-		
-		return "test";
+		return "";
 	}
+	
+	
+	
 
 }
 

@@ -1,46 +1,128 @@
-
+import java.util.*;
 
 public class Room {
 
-	private Object pillar;
-	private Object healingPotion;
-	private Object pit;
+		//Monster == 1
+		//HealingPotion == 2
+		//Pit == 4
+		//Pillar == 10
 	
 	
-	public Room() {
+	private int N;
+	private int E;
+	private int S;
+	private int W;
+	private Room entrance;
+	private Room exit;
+	private int pillar;
+	private int healingPotion;
+	private int pit;
+	private MonsterFactory monster;
+	
+	
+	private HashMap<String, Object> map = new HashMap();
+	
+	
+	
+	public Room(int N, int E, int S, int W) {
+		this.N = N;
+		this.E = E;
+		this.S = S;
+		this.W = W;
+		
+		if(Math.random() <= .7) {
+			map.put("Monster", monster.generateMonster());
+		}
+		if(Math.random() <= .1) {
+			map.put("Pit", 1);
+		}
+		if(Math.random() <= .1) {
+			map.put("Health Potion", 1);
+		}
+		
+		
 	}
 	
-	public Object getHealingPotion() {
+	
+	public int getHealingPotion() {
 		return healingPotion;
 	}
 
-	public void setHealingPotion(Object healingPotion) {
+	public void setHealingPotion(int healingPotion) {
 		this.healingPotion = healingPotion;
 	}
 
-	public Object getPit() {
+	public int getPit() {
 		return pit;
 	}
 
-	public void setPit(Object pit) {
+	public void setPit(int pit) {
 		this.pit = pit;
 	}
 	
-	public Object getPillar() {
+	public int getPillar() {
 		return pillar;
 	}
 	
-	public void setPillar(Object pillar) {
+	public void setPillar(int pillar) {
 		this.pillar = pillar;
 	}
-
-	public void healingChance() {
-		if (Math.random() <= .4) {
-			this.setHealingPotion(this.getHealingPotion());
-		}
+	
+	public int setMonster(int monster) {
+		this.monster = new MonsterFactory();
+		this.monster.generateMonster();
+		return monster;
+		
 	}
 	
+	public Room getEntrance() {
+		return entrance;
+	}
 
+	public void setEntrance(Room entrance) {
+		this.entrance = entrance;
+	}
+
+	public Room getExit() {
+		return exit;
+	}
+
+	public void setExit(Room exit) {
+		this.exit = exit;
+	}
+
+	
+
+
+	
+	
+	
+	
+	
+	
+//	public void setWalls(Room[][] room) {
+//		//this is to make sure that the entrance is placed on the border
+//		//of the dungeon, and not in the middle.
+//		//int border = new Random().nextInt(5);
+//		//int randoEntry = new Random().nextInt(5);
+//		
+//		
+//		
+//		
+//		if(room[0] == 0) {
+//			room[0][randoEntry].getEntrance();
+//		}
+//		else if(border == 1) {
+//			room[randoEntry][0].getEntrance();
+//		}
+//		else if(border == 2) {
+//			room[5][randoEntry].getEntrance();
+//		}
+//		else {
+//			room[randoEntry][5].getEntrance();
+//		}
+//		
+//	}
 	public String toString() {
 		char randomChar = 'x';
 		String top = "*";
@@ -48,25 +130,25 @@ public class Room {
 		String bottom = "*";
 		
 		
+		String boop = "* - *" + "\n" + "| " + randomChar + " |" + "\n" + "* - *";
 		
-		
-		return "* - *" + "\n" + "| " + randomChar + " |" + "\n" + "* - *";
+		return boop;
 		
 	}
 	
+	
+	
+	
 	public boolean hasPillar() {
-		if(this.getPillar() != null) {
+		if(this.getPillar() == 0) {
 			return true;
 		}
 		return false;
 	}
 	
-	
-	
-	
-	  public boolean hasEntrance() { 
-		  if(this.getEntrance() != null) {
-			  return true;
+	public boolean hasEntrance() { 
+		if(this.getEntrance() != null) {
+			return true;
 		  } 
 		  return false;
 	  }
@@ -77,6 +159,8 @@ public class Room {
 		  }
 		  return false; 
 	  }
+	
+	
 	  
 	  
 	 

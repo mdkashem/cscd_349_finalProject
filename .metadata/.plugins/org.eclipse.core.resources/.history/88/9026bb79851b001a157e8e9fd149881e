@@ -1,0 +1,181 @@
+import java.util.*;
+
+public class Room {
+
+		//Monster == 1
+		//HealingPotion == 2
+		//Pit == 4
+		//Pillar == 10
+	
+	
+	private int N;
+	private int E;
+	private int S;
+	private int W;
+	private Room entrance;
+	private Room exit;
+	private int pillar;
+	private int healingPotion;
+	private int pit;
+	private MonsterFactory monster;
+	private HashMap<String, Object> map = new HashMap();
+	
+	
+	
+	public Room(int N, int E, int S, int W) {
+		this.N = N;
+		this.E = E;
+		this.S = S;
+		this.W = W;
+		
+		if(Math.random() <= .1) {
+			map.put("Monster", MonsterFactory.generateMonster())
+		}
+		
+	}
+	
+	
+	public int getHealingPotion() {
+		return healingPotion;
+	}
+
+	public void setHealingPotion(int healingPotion) {
+		this.healingPotion = healingPotion;
+	}
+
+	public int getPit() {
+		return pit;
+	}
+
+	public void setPit(int pit) {
+		this.pit = pit;
+	}
+	
+	public int getPillar() {
+		return pillar;
+	}
+	
+	public void setPillar(int pillar) {
+		this.pillar = pillar;
+	}
+	
+	public int setMonster(int monster) {
+		this.monster = new MonsterFactory();
+		this.monster.generateMonster();
+		return monster;
+		
+	}
+	
+	public Room getEntrance() {
+		return entrance;
+	}
+
+	public void setEntrance(Room entrance) {
+		this.entrance = entrance;
+	}
+
+	public Room getExit() {
+		return exit;
+	}
+
+	public void setExit(Room exit) {
+		this.exit = exit;
+	}
+
+	
+
+
+	public void spawnHeal() {
+		if (Math.random() <= .1) {
+			this.setHealingPotion(2);
+			return;
+		}
+		this.setHealingPotion(0);
+		return;
+	}
+	
+	public void spawnPit() {
+		if (Math.random() <= .1) {
+			this.setPit(4);
+			return;
+		}
+		this.setPit(0);
+		return;
+	}
+	
+	public int spawnMonster() {
+		if(Math.random() <= .1) {
+			return this.setMonster(1);
+		}
+		return 0;
+	}
+	
+	public void setSpawn(Room[][] entrance) {
+		//this is to make sure that the entrance is placed on the border
+		//of the dungeon, and not in the middle.
+		int border = new Random().nextInt(5);
+		int randoEntry = new Random().nextInt(5);
+		//int randoExit = new Random().nextInt(6);
+		
+		
+		
+		if(border == 0) {
+			entrance[0][randoEntry].getEntrance();
+		}
+		else if(border == 1) {
+			entrance[randoEntry][0].getEntrance();
+		}
+		else if(border == 2) {
+			entrance[5][randoEntry].getEntrance();
+		}
+		else {
+			entrance[randoEntry][5].getEntrance();
+		}
+		
+	}
+	public String toString() {
+		char randomChar = 'x';
+		String top = "*";
+		String middle = "";
+		String bottom = "*";
+		
+		
+		String boop = "* - *" + "\n" + "| " + randomChar + " |" + "\n" + "* - *";
+		
+		return boop;
+		
+	}
+	
+	
+	
+	
+	public boolean hasPillar() {
+		if(this.getPillar() == 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean hasEntrance() { 
+		if(this.getEntrance() != null) {
+			return true;
+		  } 
+		  return false;
+	  }
+	  
+	  public boolean hasExit() {
+		  if(this.getExit() != null) {
+			  return true;
+		  }
+		  return false; 
+	  }
+	
+	
+	  
+	  
+	 
+	
+	
+	
+	
+}
