@@ -16,35 +16,38 @@ import java.util.Random;
     				dungeon[row1][col1] = new Room(1,0,0,1);
     			}
     			//all north walls
-    			if(row1 == 0 && (col1 == 1 || col1 == 2 || col1 == 3)) {
+    			else if(row1 == 0 && (col1 == 1 || col1 == 2 || col1 == 3)) {
     				dungeon[row1][col1] = new Room(1,0,0,0);
     			}
     			
     			//top right corner
-    			if(row1 == 0 && col1 == 4) {
+    			else if(row1 == 0 && col1 == 4) {
     				dungeon[row1][col1] = new Room(1,1,0,0);
     			}
     			//all East walls
-    			if(col1 == 4 && (row1 == 1 || row1 == 2 || row1 == 3)) {
+    			else if(col1 == 4 && (row1 == 1 || row1 == 2 || row1 == 3)) {
     				dungeon[row1][col1] = new Room(0,1,0,0);
     			}
     			
     			//bottom left corner
-    			if(row1 == 4 && col1 == 0) {
+    			else if(row1 == 4 && col1 == 0) {
     				dungeon[row1][col1] = new Room(0,0,1,1);
     			}
     			//all West walls
-    			if(col1 == 0 && (row1 == 1 || row1 == 2 || row1 == 3)) {
+    			else if(col1 == 0 && (row1 == 1 || row1 == 2 || row1 == 3)) {
     				dungeon[row1][col1] = new Room(0,0,0,1);
     			}
     			
     			//bottom right corner
-    			if(row1 == 4 && col1 == 4) {
+    			else if(row1 == 4 && col1 == 4) {
     				dungeon[row1][col1] = new Room(0,1,1,0);
     			}
     			//all South walls
-    			if(row1 == 4 &&  (col1 == 1 || col1 == 2 || col1 == 3)) {
+    			else if(row1 == 4 &&  (col1 == 1 || col1 == 2 || col1 == 3)) {
     				dungeon[row1][col1] = new Room(0,0,1,0);
+    			}
+    			else {
+    				dungeon[row1][col1] = new Room(0,0,0,0);
     			}
     			
     			dungeon.toString();
@@ -61,12 +64,14 @@ import java.util.Random;
 				randoRow = new Random().nextInt(5);
 				randoCol = new Random().nextInt(5);
 			}
-			dungeon[randoRow][randoCol].setPillar(10);
+			dungeon[randoRow][randoCol].map.put("Pillar", 1);
 			count++;
 		}
     	
     	
 	}
+	
+	
 
 	
 	public boolean isDoor(int wall) {
