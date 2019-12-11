@@ -1,4 +1,3 @@
-
 package dungeon;
 import java.util.*;
 public class Room {
@@ -21,7 +20,7 @@ public class Room {
 	//private MonsterFactory Monster;
 	
 	
-	private HashMap<String, Object> map = new HashMap();
+	protected HashMap<String, Object> map = new HashMap();
 	
 	
 	
@@ -100,9 +99,7 @@ public class Room {
 		String e = "";
 		String s = "";
 		String w = "";
-		String top = "*" + n + "*";
-		String middle = "" + w + randomChar + e + "";
-		String bottom = "*" + s + "*";
+		
 		
 		
 		if(map.containsValue(entrance)) {
@@ -123,22 +120,38 @@ public class Room {
 		else if(map.isEmpty()) {
 			randomChar = 'E';
 		}
-		else {
+		else if (map.size() > 1) {
 			randomChar = 'M';
 		}
 		
 		if(N == 1) {
 			n = "*";
 		}
+		else {
+			n = "-";
+		}
 		if(E == 1) {
 			e = "*";
+		}
+		else {
+			e = "|";
 		}
 		if(S == 1) {
 			s = "*";
 		}
+		else {
+			s = "-";
+		}
 		if(W == 1) {
 			w = "*";
 		}
+		else {
+			w = "|";
+		}
+		
+		String top = "* " + n + " *";
+		String middle =  w + " " + randomChar + " " + e;
+		String bottom = "* " + s + " *";
 		
 		String boop = 	top + "\n"
 						+ middle + "\n"
