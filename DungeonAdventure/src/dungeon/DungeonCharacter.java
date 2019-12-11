@@ -1,6 +1,8 @@
 package dungeon;
 
 
+
+
 /**
  * Title: DungeonCharacter.java
  *
@@ -42,12 +44,8 @@ public abstract class DungeonCharacter
 	protected int attackSpeed;
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
+	private Attack theAttack;
 
-	/*public int compareTo(Object o)
-	{
-		return 1;
-	}
-*/
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
@@ -127,28 +125,8 @@ public abstract class DungeonCharacter
 
 	public void attack(DungeonCharacter opponent)
 	{
-		boolean canAttack;
-		int damage;
-
-		canAttack = Math.random() <= chanceToHit;
-
-		if (canAttack)
-		{
-			damage = (int)(Math.random() * (damageMax - damageMin + 1))
-						+ damageMin ;
-			opponent.subtractHitPoints(damage);
-
-
-
-			System.out.println();
-		}//end if can attack
-		else
-		{
-
-			System.out.println(getName() + "'s attack on " + opponent.getName() +
-								" failed!");
-			System.out.println();
-		}//end else
+		this.theAttack.attack(this, opponent);
+		
 
 	}//end attack method
 
