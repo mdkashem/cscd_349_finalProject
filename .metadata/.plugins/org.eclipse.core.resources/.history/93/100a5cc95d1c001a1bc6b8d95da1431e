@@ -62,7 +62,6 @@ public class DungeonAdventure
 		
 		Dungeon dungeon = new Dungeon(5,5);
 		
-		System.out.println("You wake up in a dark room...");
 		
 		
 		

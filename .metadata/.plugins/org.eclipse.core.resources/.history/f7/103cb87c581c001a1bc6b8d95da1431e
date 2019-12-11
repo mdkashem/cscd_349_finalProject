@@ -1,5 +1,10 @@
+//<<<<<<< HEAD:DungeonAdventure/src/Room.java
 package dungeon;
 import java.util.*;
+
+
+//>>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Room.java
+
 public class Room {
 
 		//Monster == 1
@@ -20,7 +25,7 @@ public class Room {
 	//private MonsterFactory Monster;
 	
 	
-	protected HashMap<String, Object> map = new HashMap();
+	private HashMap<String, Object> map = new HashMap();
 	
 	
 	
@@ -44,36 +49,6 @@ public class Room {
 	}
 	
 	
-	
-	
-	public int getN() {
-		return N;
-	}
-
-
-
-
-	public int getE() {
-		return E;
-	}
-
-
-
-
-	public int getS() {
-		return S;
-	}
-
-
-
-
-	public int getW() {
-		return W;
-	}
-
-
-
-
 	public int getHealingPotion() {
 		return healingPotion;
 	}
@@ -150,7 +125,7 @@ public class Room {
 		else if(map.isEmpty()) {
 			randomChar = 'E';
 		}
-		else if (map.size() > 1) {
+		else {
 			randomChar = 'M';
 		}
 		
@@ -216,9 +191,7 @@ public class Room {
 		  return false; 
 	  }
 	
-	  public void playerLocation() {
-		this.toString();
-		}
+	
 	  
 	  
 	 

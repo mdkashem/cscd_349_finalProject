@@ -82,9 +82,46 @@ import java.util.Scanner;
 
 	
 
-	public void setSpawn(int row, int col) {
+	public void setSpawn(Room[][] entrance) {
+
+		//this is to make sure that the entrance is placed on the border
+
+		//of the dungeon, and not in the middle.
+
+		int border = new Random().nextInt(5);
+
+		int randoEntry = new Random().nextInt(6);
+
+		//int randoExit = new Random().nextInt(6);
+
+
+		if(border == 0) {
+
+			entrance[0][randoEntry].getEntrance();
+
+		}
+
+		else if(border == 1) {
+
+			entrance[randoEntry][0].getEntrance();
+
+		}
+
+		else if(border == 2) {
+
+			entrance[5][randoEntry].getEntrance();
+
+		}
+
+		else {
+
+			entrance[randoEntry][5].getEntrance();
+
+		}
 
 		
+
+
 	}
 
 	
