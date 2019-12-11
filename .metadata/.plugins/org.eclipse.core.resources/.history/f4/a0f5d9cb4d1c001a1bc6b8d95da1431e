@@ -1,6 +1,10 @@
-
+//<<<<<<< HEAD:DungeonAdventure/src/Room.java
 package dungeon;
 import java.util.*;
+
+
+//>>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Room.java
+
 public class Room {
 
 		//Monster == 1
@@ -13,9 +17,9 @@ public class Room {
 	private int E;
 	private int S;
 	private int W;
-	private Object entrance;
-	private Object exit;
-	private Object pillar;
+	private Room entrance;
+	private Room exit;
+	private int pillar;
 	private int healingPotion;
 	private int pit;
 	//private MonsterFactory Monster;
@@ -61,11 +65,11 @@ public class Room {
 		this.pit = pit;
 	}
 	
-	public Object getPillar() {
+	public int getPillar() {
 		return pillar;
 	}
 	
-	public void setPillar(Object pillar) {
+	public void setPillar(int pillar) {
 		this.pillar = pillar;
 	}
 	
@@ -76,75 +80,63 @@ public class Room {
 //		
 //	}
 	
-	public Object getEntrance() {
+	public Room getEntrance() {
 		return entrance;
 	}
 
-	public void setEntrance(Object entrance) {
+	public void setEntrance(Room entrance) {
 		this.entrance = entrance;
 	}
 
-	public Object getExit() {
+	public Room getExit() {
 		return exit;
 	}
 
-	public void setExit(int exit) {
+	public void setExit(Room exit) {
 		this.exit = exit;
 	}
 
 	
+
+
+	
+	
+	
+	
+	
+	
+//	public void setWalls(Room[][] room) {
+//		//this is to make sure that the entrance is placed on the border
+//		//of the dungeon, and not in the middle.
+//		//int border = new Random().nextInt(5);
+//		//int randoEntry = new Random().nextInt(5);
+//		
+//		
+//		
+//		
+//		if(room[0] == 0) {
+//			room[0][randoEntry].getEntrance();
+//		}
+//		else if(border == 1) {
+//			room[randoEntry][0].getEntrance();
+//		}
+//		else if(border == 2) {
+//			room[5][randoEntry].getEntrance();
+//		}
+//		else {
+//			room[randoEntry][5].getEntrance();
+//		}
+//		
+//	}
 	public String toString() {
-		char randomChar = 'E';
-		
-		String n = "";
-		String e = "";
-		String s = "";
-		String w = "";
-		String top = "*" + n + "*";
-		String middle = "" + w + randomChar + e + "";
-		String bottom = "*" + s + "*";
+		char randomChar = 'x';
+		String top = "*";
+		String middle = "";
+		String bottom = "*";
 		
 		
-		if(map.containsValue(entrance)) {
-			randomChar = 'I';
-		}
-		else if(map.containsValue(exit)) {
-			randomChar = 'O';
-		}
-		else if(map.containsKey("Health Potion")) {
-			randomChar = 'H';
-		}
-		else if(map.containsKey("Monster")) {
-			randomChar = 'X';
-		}
-		else if(map.containsKey("Pit")) {
-			randomChar = 'P';
-		}
-		else if(map.isEmpty()) {
-			randomChar = 'E';
-		}
-		else {
-			randomChar = 'M';
-		}
-		
-		if(N == 1) {
-			n = "*";
-		}
-		if(E == 1) {
-			e = "*";
-		}
-		if(S == 1) {
-			s = "*";
-		}
-		if(W == 1) {
-			w = "*";
-		}
-		
-		String boop = 	top + "\n"
-						+ middle + "\n"
-						+ bottom;
-		
-		
+		String boop = "* - *" + "\n" + "| " + randomChar + " |" + "\n" + "* - *";
+		System.out.println(boop);
 		return boop;
 		
 	}
@@ -153,7 +145,7 @@ public class Room {
 	
 	
 	public boolean hasPillar() {
-		if(this.getPillar() != null) {
+		if(this.getPillar() == 0) {
 			return true;
 		}
 		return false;
