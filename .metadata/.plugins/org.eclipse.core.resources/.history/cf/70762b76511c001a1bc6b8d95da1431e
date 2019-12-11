@@ -24,47 +24,36 @@ import java.util.Random;
 	    
     	for(int row1 = 0; row1 < col; row1++) {
     		for(int col1 = 0; col1 < row; col1++) {
-    			//top left corner
     			if(row1 == 0 && col1 == 0) {
     				dungeon[row1][col1] = new Room(1,0,0,1);
     			}
-    			//all north walls
-    			if(row1 == 0 && (col1 == 1 || col1 == 2 || col1 == 3)) {
-    				dungeon[row1][col1] = new Room(1,0,0,0);
-    			}
-    			
-    			//top right corner
     			if(row1 == 0 && col1 == 4) {
     				dungeon[row1][col1] = new Room(1,1,0,0);
     			}
-    			//all East walls
-    			if(col1 == 4 && (row1 == 1 || row1 == 2 || row1 == 3)) {
-    				dungeon[row1][col1] = new Room(0,1,0,0);
+    			if(row1 == 0) {
+    				dungeon[row1][col1] = new Room(1,0,0,0);
     			}
-    			
-    			//bottom left corner
     			if(row1 == 4 && col1 == 0) {
     				dungeon[row1][col1] = new Room(0,0,1,1);
     			}
-    			//all West walls
-    			if(col1 == 0 && (row1 == 1 || row1 == 2 || row1 == 3)) {
-    				dungeon[row1][col1] = new Room(0,0,0,1);
-    			}
-    			
-    			//bottom right corner
     			if(row1 == 4 && col1 == 4) {
     				dungeon[row1][col1] = new Room(0,1,1,0);
     			}
-    			//all South walls
-    			if(row1 == 4 &&  (col1 == 1 || col1 == 2 || col1 == 3)) {
+    			if(col1 == 0) {
+    				dungeon[row1][col1] = new Room(0,0,0,1);
+    			}
+    			if(row1 == 4) {
     				dungeon[row1][col1] = new Room(0,0,1,0);
     			}
+    			if(col1 == 4) {
+    				dungeon[row1][col1] = new Room(0,1,0,0);
+    			}
+    			//dungeon[row1][col1] = new Room(0,0,0,0);
     			
-    			dungeon.toString();
     		}
     	}
     	
-    	//dungeon.toString();
+    	dungeon.toString();
     	int randoRow = new Random().nextInt(5);
     	int randoCol = new Random().nextInt(5);
     	int count = 0;

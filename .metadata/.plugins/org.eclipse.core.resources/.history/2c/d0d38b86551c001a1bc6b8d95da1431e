@@ -60,7 +60,7 @@ import java.util.Random;
     				dungeon[row1][col1] = new Room(0,0,1,0);
     			}
     			
-    			dungeon.toString();
+    			
     		}
     	}
     	

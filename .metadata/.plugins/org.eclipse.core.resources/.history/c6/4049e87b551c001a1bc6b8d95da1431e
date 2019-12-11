@@ -46,6 +46,12 @@ public class Room {
 		}
 		
 		
+		
+		if(N == 1) {
+			
+		}
+		
+		
 	}
 	
 	
@@ -95,6 +101,16 @@ public class Room {
 	public void setExit(int exit) {
 		this.exit = exit;
 	}
+
+	
+
+
+	
+	
+	
+	
+	
+	
 
 	
 	public String toString() {

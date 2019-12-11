@@ -46,6 +46,12 @@ public class Room {
 		}
 		
 		
+		
+		if(N == 1) {
+			
+		}
+		
+		
 	}
 	
 	
@@ -97,13 +103,45 @@ public class Room {
 	}
 
 	
+
+
+	
+	
+	
+	
+	
+	
+//	public void setWalls(Room[][] room) {
+//		//this is to make sure that the entrance is placed on the border
+//		//of the dungeon, and not in the middle.
+//		//int border = new Random().nextInt(5);
+//		//int randoEntry = new Random().nextInt(5);
+//		
+//		
+//		
+//		
+//		if(room[0][3] == 0) {
+//			room[0][randoEntry].getEntrance();
+//		}
+//		else if(border == 1) {
+//			room[randoEntry][0].getEntrance();
+//		}
+//		else if(border == 2) {
+//			room[5][randoEntry].getEntrance();
+//		}
+//		else {
+//			room[randoEntry][5].getEntrance();
+//		}
+//		
+//	}
+	
 	public String toString() {
 		char randomChar = 'E';
 		
-		String n = "";
-		String e = "";
-		String s = "";
-		String w = "";
+		String n;
+		String e;
+		String s;
+		String w;
 		String top = "*" + n + "*";
 		String middle = "" + w + randomChar + e + "";
 		String bottom = "*" + s + "*";
@@ -144,11 +182,11 @@ public class Room {
 			w = "*";
 		}
 		
-		String boop = 	top + "\n"
-						+ middle + "\n"
-						+ bottom;
 		
 		
+		System.out.println(top + "\n"
+							+ middle + "\n"
+							+ bottom);
 		return boop;
 		
 	}
