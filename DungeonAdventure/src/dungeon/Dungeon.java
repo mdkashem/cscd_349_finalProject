@@ -1,72 +1,29 @@
 package dungeon;
 
-
-
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
 
 
-
 public class Dungeon {
-
-	
-<<<<<<< HEAD:DungeonAdventure/src/Dungeon.java
-=======
 
 	private Room entrance;
 
 	private Room exit;
-
->>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Dungeon.java
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-<<<<<<< HEAD:DungeonAdventure/src/Dungeon.java
-	
-	
-	
-	
-	
-	
-	
-
-=======
-
 	public Object getEntrance() {
 
 		return entrance;
 
 	}
 
-
-
 	public void setEntrance() {
 
-		
-
 	}
-
-
-
 	public Object getExit() {
 
 		return exit;
 
 	}
-
-
 
 	public void setExit(int[][] exit) {
 
@@ -75,43 +32,21 @@ public class Dungeon {
 	}
 
 
-
-	
-
-
-
 	public Dungeon(Room[][] dungeon) {
 
 		//dungeon.createDungeon();
 
 		 dungeon = new Room[5][5];
 
-    	
-
 	}
 
->>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Dungeon.java
-	
-
-	
-
-	
-
-<<<<<<< HEAD:DungeonAdventure/src/Dungeon.java
-	
-
 	public Dungeon(int row, int col) {
-		Room[][] dungeon = new Room[row][col];
-		
-		
-	    
+		Room[][] dungeon = new Room[row][col];  
     	for(int row1 = 0; row1 < col; row1++) {
     		for(int col1 = 0; col1 < row; col1++) {
     			dungeon[row1][col1] = new Room(0,0,0,0);
-=======
-	public static void createDungeon() {
 
-		
+	public static void createDungeon() {
 
     	Room[][] dungeon = new Room[5][5];
 
@@ -121,11 +56,10 @@ public class Dungeon {
 
     			Room room = new Room();
 
->>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Dungeon.java
     		}
 
     	}
-<<<<<<< HEAD:DungeonAdventure/src/Dungeon.java
+
     	
     	dungeon.toString();
     	int randoRow = new Random().nextInt(5);
@@ -145,13 +79,9 @@ public class Dungeon {
 	
 	public boolean isDoor(int wall) {
 		return wall == 1;
-=======
 
-    
 
     }
-
-	
 
 	public void setSpawn(Room[][] entrance) {
 
@@ -164,12 +94,6 @@ public class Dungeon {
 		int randoEntry = new Random().nextInt(6);
 
 		//int randoExit = new Random().nextInt(6);
-
-		
-
-		
-
-		
 
 		if(border == 0) {
 
@@ -195,11 +119,7 @@ public class Dungeon {
 
 		}
 
-		
-
->>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Dungeon.java
 	}
-
 	
 
 	public void setExitDoor(Room[][] exit) {
@@ -229,19 +149,17 @@ public class Dungeon {
 	}
 
 	
-<<<<<<< HEAD:DungeonAdventure/src/Dungeon.java
+
 	public void spawnPillar(Room[][] room) {
 		int row = 0;
 		int col = 0;
-=======
+
 
 	public void placePillar(Room[][] room) {
 
 		int row = new Random().nextInt(6);
 
 		int col = new Random().nextInt(6);
-
->>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Dungeon.java
 		int count = 0;
 
 		
@@ -266,14 +184,10 @@ public class Dungeon {
 
 	}
 
-	
-
-	
-<<<<<<< HEAD:DungeonAdventure/src/Dungeon.java
 	 
 	  public String location() {
 		  return "";
-=======
+
 
 	  public boolean hasEntrance() { 
 
@@ -287,8 +201,6 @@ public class Dungeon {
 
 	  }
 
-	  
-
 	  public boolean hasExit() {
 
 		  if(this.getExit() != null) {
@@ -299,31 +211,17 @@ public class Dungeon {
 
 		  return false;
 
-	  }
-
-	  
+	  }  
 
 	  public String location() {
 
 		  
-
->>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Dungeon.java
 	  }
-
-	
-
-	
-
 	
 
 	public String toString() {
 
-		
-
-		
-<<<<<<< HEAD:DungeonAdventure/src/Dungeon.java
 		return "";
-=======
 
 		for(int row = 0; row < dungeon.length; row++) {
 
@@ -334,12 +232,10 @@ public class Dungeon {
     		}
 
     	}
-
-		
+	
 
 		return "test";
 
->>>>>>> d867c8bc35b350d6f2f6f622515126f5c4d964b2:DungeonAdventure/src/dungeon/Dungeon.java
 	}
 	
 	

@@ -33,7 +33,7 @@ public abstract class Hero extends DungeonCharacter {
 	int numOfHealing = 0;
 	int numOfVision = 0;
 	int numOfPiller = 0;
-
+	AttackFactory attackFactory = new AttackFactory();
 	// -----------------------------------------------------------------
 	// calls base constructor and gets name of hero from user
 	public Hero(String name, int hitPoints, int attackSpeed,

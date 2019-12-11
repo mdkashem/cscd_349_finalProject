@@ -15,6 +15,8 @@ public class MonsterFactory {
 			case 2: return new Gremlin();
 
 			case 3: return new Skeleton();
+			case 4: return new VillianOne();
+			case 5: return new VillianTwo();
 
 			default: System.out.println("invalid choice, returning Skeleton");
 				     return new Skeleton();

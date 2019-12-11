@@ -26,7 +26,7 @@ public class FireballAttack implements Attack{
 			damage = (int)(Math.random() * (attacker.damageMax - attacker.damageMin + 0.75))
 						+ attacker.damageMin ;
 			defender.subtractHitPoints(damage);
-
+			System.out.println(attacker.getName() + " did "+getName()+" on " + defender.getName());
 			System.out.println();
 		}//end if can attack
 		else

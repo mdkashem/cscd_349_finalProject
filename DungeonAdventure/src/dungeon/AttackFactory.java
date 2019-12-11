@@ -7,10 +7,31 @@ import java.util.Map;
 public class AttackFactory {
 	private Map<String, Attack> attacks = new HashMap<String, Attack>();
 	
-	public Attack getAttack(String name ){
+	public Attack getFireBallAttack(String name ){
 		Attack attack = attacks.get(name);
 		if(attack==null){
 			attack = new FireballAttack(name);
+			attacks.put(name, attack);
+			
+		}
+		return attack;
+		
+	}
+	
+	public Attack getCrushingBlow(String name ){
+		Attack attack = attacks.get(name);
+		if(attack==null){
+			attack = new CrushingBlow(name);
+			attacks.put(name, attack);
+			
+		}
+		return attack;
+		
+	}
+	public Attack getBaseAttack(String name ){
+		Attack attack = attacks.get(name);
+		if(attack==null){
+			attack = new CrushingBlow(name);
 			attacks.put(name, attack);
 			
 		}
