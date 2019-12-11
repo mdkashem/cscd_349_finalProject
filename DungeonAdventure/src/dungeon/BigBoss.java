@@ -8,34 +8,6 @@ public class BigBoss extends Hero{
 		super("Big Boss", 325, 4, .8, 35, 60, .2);
 	}
 
-	public void crushingBlow(DungeonCharacter opponent)
-	{
-		if (Math.random() <= .4)
-		{
-			int blowPoints = (int)(Math.random() * 76) + 100;
-			System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints
-								+ " damage!");
-			opponent.subtractHitPoints(blowPoints);
-		}//end blow succeeded
-		else
-		{
-			System.out.println(name + " failed to land a crushing blow");
-			System.out.println();
-		}//blow failed
-
-	}//end crushingBlow method
-
-	public void attack(DungeonCharacter opponent)
-	{
-		System.out.println(name + " swings a mighty sword at " +
-							opponent.getName() + ":");
-		super.attack(opponent);
-		
-		
-	}//end override of attack method
-
-
-
 
     public void battleChoices(DungeonCharacter opponent)
 	{
@@ -58,17 +30,17 @@ public class BigBoss extends Hero{
 			    case 1: 
 			    	
 			    	attackFactory.getFireBallAttack("Fire Ball Attack");
-			    	attack(opponent);
+			    	
 			        break;
 			    case 2: 
 			    	
 			    	attackFactory.getCrushingBlow("Crushing Blow Attach");
-			    	//crushingBlow(opponent);
+			    	
 			        break;
                  case 3: 
 			    	
 			    	attackFactory.getBaseAttack("Base Attack ");
-			    	//crushingBlow(opponent);
+			    	
 			        break;
 			    default:
 			        System.out.println("invalid choice!");

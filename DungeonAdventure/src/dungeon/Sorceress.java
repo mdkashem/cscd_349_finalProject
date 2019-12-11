@@ -41,13 +41,6 @@ public class Sorceress extends Hero
 
     }//end increaseHitPoints method
 
-//-----------------------------------------------------------------
-	public void attack(DungeonCharacter opponent)
-	{
-		System.out.println(name + " casts a spell of fireball at " +
-							opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack method
 
 //-----------------------------------------------------------------
     public void battleChoices(DungeonCharacter opponent)
@@ -65,7 +58,7 @@ public class Sorceress extends Hero
 
 		    switch (choice)
 		    {
-			    case 1: attack(opponent);
+			    case 1: attackFactory.getBaseAttack("Base Attack ");
 			        break;
 			    case 2: increaseHitPoints();
 			        break;

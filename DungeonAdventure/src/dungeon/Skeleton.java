@@ -24,7 +24,8 @@ public class Skeleton extends Monster
 	{
 		System.out.println(name + " slices his rusty blade at " +
 							opponent.getName() + ":");
-		super.attack(opponent);
+		//super.attack(opponent);
+		MonsterAttackFactory.getBaseAttack("Base Attack ");
 
 	}//end override of attack
 
