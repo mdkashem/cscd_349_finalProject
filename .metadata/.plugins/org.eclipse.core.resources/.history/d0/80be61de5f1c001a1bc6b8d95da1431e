@@ -44,36 +44,6 @@ public class Room {
 	}
 	
 	
-	
-	
-	public int getN() {
-		return N;
-	}
-
-
-
-
-	public int getE() {
-		return E;
-	}
-
-
-
-
-	public int getS() {
-		return S;
-	}
-
-
-
-
-	public int getW() {
-		return W;
-	}
-
-
-
-
 	public int getHealingPotion() {
 		return healingPotion;
 	}
@@ -216,9 +186,7 @@ public class Room {
 		  return false; 
 	  }
 	
-	  public void playerLocation() {
-		this.toString();
-		}
+	
 	  
 	  
 	 
