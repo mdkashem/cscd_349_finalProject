@@ -77,14 +77,12 @@ import java.util.Random;
 				randoRow = new Random().nextInt(5);
 				randoCol = new Random().nextInt(5);
 			}
-			dungeon[randoRow][randoCol].map.put("Pillar", 1);
+			dungeon[randoRow][randoCol].setPillar(10);
 			count++;
 		}
     	
     	
 	}
-	
-	
 
 	
 	public boolean isDoor(int wall) {

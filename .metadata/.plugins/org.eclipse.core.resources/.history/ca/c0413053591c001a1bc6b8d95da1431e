@@ -125,7 +125,7 @@ public class Room {
 		else if(map.isEmpty()) {
 			randomChar = 'E';
 		}
-		else if (map.size() > 1) {
+		else {
 			randomChar = 'M';
 		}
 		

@@ -25,7 +25,7 @@ public class Room {
 	//private MonsterFactory Monster;
 	
 	
-	protected HashMap<String, Object> map = new HashMap();
+	private HashMap<String, Object> map = new HashMap();
 	
 	
 	
@@ -125,38 +125,26 @@ public class Room {
 		else if(map.isEmpty()) {
 			randomChar = 'E';
 		}
-		else if (map.size() > 1) {
+		else {
 			randomChar = 'M';
 		}
 		
 		if(N == 1) {
 			n = "*";
 		}
-		else {
-			n = "-";
-		}
 		if(E == 1) {
 			e = "*";
-		}
-		else {
-			e = "|";
 		}
 		if(S == 1) {
 			s = "*";
 		}
-		else {
-			s = "-";
-		}
 		if(W == 1) {
 			w = "*";
 		}
-		else {
-			w = "|";
-		}
 		
-		String top = "* " + n + " *";
-		String middle =  w + " " + randomChar + " " + e;
-		String bottom = "* " + s + " *";
+		String top = "*" + n + "*";
+		String middle = "" + w + randomChar + e + "";
+		String bottom = "*" + s + "*";
 		
 		String boop = 	top + "\n"
 						+ middle + "\n"
