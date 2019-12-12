@@ -137,8 +137,6 @@ public class DungeonAdventure
 		if(room.map.containsKey("Health Potion")) {
 			int rn = new Random().nextInt(30);
 			player.addHitPoints(rn);
-			System.out.println("You drink a suspicious liquid...but feel a burst of energy. \n"
-					+ "Your wounds begin to close as your health has increased by " + rn);
 		}
 		if(room.map.containsKey("Pillar")) {
 			player.numOfPiller++;
@@ -146,11 +144,7 @@ public class DungeonAdventure
 								+ "Your total amount of Pillars is " + player.numOfPiller);
 		}
 		if(room.map.containsKey("Exit")) {
-			System.out.println("You have found the exit, do you wish to leave?\n");
-			if(player.numOfPiller < 4) {
-				System.out.println("You miscreant. You only have " + player.numOfPiller
-									+ "Pillar(s)");
-			}
+			
 		}
 		Scanner kin = new Scanner(System.in);
 		System.out.println("");

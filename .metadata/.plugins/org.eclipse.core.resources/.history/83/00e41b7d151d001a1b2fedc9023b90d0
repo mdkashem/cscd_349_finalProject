@@ -146,11 +146,7 @@ public class DungeonAdventure
 								+ "Your total amount of Pillars is " + player.numOfPiller);
 		}
 		if(room.map.containsKey("Exit")) {
-			System.out.println("You have found the exit, do you wish to leave?\n");
-			if(player.numOfPiller < 4) {
-				System.out.println("You miscreant. You only have " + player.numOfPiller
-									+ "Pillar(s)");
-			}
+			
 		}
 		Scanner kin = new Scanner(System.in);
 		System.out.println("");
