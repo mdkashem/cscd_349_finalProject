@@ -10,6 +10,7 @@ public class VillianOne extends Monster {
 		System.out.println(name + " jabs his kris at " +
 							opponent.getName() + ":");
 		super.attack(opponent);
+		//MonsterAttackFactory.getBaseAttack("Base Attack ");
 
 	}//end override of attack
 

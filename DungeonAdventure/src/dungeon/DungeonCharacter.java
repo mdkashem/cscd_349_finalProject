@@ -45,6 +45,7 @@ public abstract class DungeonCharacter
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
 	private Attack theAttack;
+	
 
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called

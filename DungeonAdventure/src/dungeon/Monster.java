@@ -16,6 +16,7 @@ public abstract class Monster extends DungeonCharacter
 {
 	private double chanceToHeal;
 	private int minHeal, maxHeal;
+	AttackFactory MonsterAttackFactory = new AttackFactory();
 
 //-----------------------------------------------------------------
   public Monster(String name, int hitPoints, int attackSpeed,
