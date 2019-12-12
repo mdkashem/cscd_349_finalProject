@@ -122,20 +122,22 @@ public class DungeonAdventure
    public static char movePlayer(Hero player, Room cur) throws Exception{
 	   Scanner kin = new Scanner(System.in);
 	   System.out.println("Current Room: ");
-	   System.out.println(cur.toString());
+	   System.out.println(cur.toString() + "\n");
 	   System.out.println("Which direction do you want to go?: \n"
 							+ "N--S--E--W? ");
 	   
 	   char c = kin.next().charAt(0);
+	   char e = Character.toUpperCase(c);
+	   
 							
-		if(c == 'N') {
+		if(e == 'N') {
 			if(cur.getN() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
 			else {
 				return 'N';
 			}
-<<<<<<< HEAD
+
 		}
 		else if(c == 'E') {
 			if(cur.getE() == 1) {
@@ -153,9 +155,9 @@ public class DungeonAdventure
 				return 'S';
 			}
 		}
-=======
-		}
-		else if(c == 'E') {
+
+		
+		else if(e == 'E') {
 			if(cur.getE() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -163,7 +165,7 @@ public class DungeonAdventure
 				return 'E';
 			}
 		}
-		else if(c == 'S') {
+		else if(e == 'S') {
 			if(cur.getS() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -171,8 +173,8 @@ public class DungeonAdventure
 				return 'S';
 			}
 		}
->>>>>>> eef6b9ce713971111dbfcd07add9b0e0b9e5898b
 		else if(c == 'W') {
+
 			if(cur.getW() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -213,9 +215,9 @@ public class DungeonAdventure
 			battle(player, monster);
 		}
 		if(room.map.containsKey("Pit")) {
+			System.out.println("You fall 15 feet into a pit." + "\n");
 			int rn = new Random().nextInt(30);
 			player.subtractHitPoints(rn);
-			System.out.println("You fall 15 feet into a pit." + "\n");
 			System.out.println("Your health is " + player.hitPoints);
 		}
 		if(room.map.containsKey("Health Potion")) {
@@ -231,7 +233,7 @@ public class DungeonAdventure
 								+ "Your total amount of Pillars is " + player.getNumOfPiller() + ".");
 		}
 		if(room.map.containsKey("Entrance")) {
-			System.out.println("You are at the entrance...");
+			System.out.println("You are at the entrance...\n");
 		}
 		if(room.map.containsKey("Exit")) {
 			System.out.println("You have found the exit, do you wish to leave? y/n\n");
@@ -245,7 +247,7 @@ public class DungeonAdventure
 									+ "Pillars!");
 				}
 				else {
-					System.out.println("Congratulations! You have won!");
+					System.out.println("Congratulations! You have escaped the dungeon!");
 					room.map.put("Pit", 500);
 				}
 			}
