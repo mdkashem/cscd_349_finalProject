@@ -30,9 +30,34 @@ public abstract class Hero extends DungeonCharacter {
 	private double chanceToBlock;
 
 	protected int numTurns;
-	int numOfHealing = 0;
-	int numOfVision = 0;
-	int numOfPiller = 0;
+	private int numOfHealing = 0;
+	private int numOfVision = 0;
+	private int numOfPiller = 0;
+	public int getNumOfHealing() {
+		return numOfHealing;
+	}
+
+	public void setNumOfHealing(int numOfHealing) {
+		this.numOfHealing = numOfHealing;
+	}
+
+	public int getNumOfVision() {
+		return numOfVision;
+	}
+
+	public void setNumOfVision(int numOfVision) {
+		this.numOfVision = numOfVision;
+	}
+
+	public int getNumOfPiller() {
+		return numOfPiller;
+	}
+
+	public void setNumOfPiller(int numOfPiller) {
+		this.numOfPiller = numOfPiller;
+	}
+
+	
 	AttackFactory attackFactory = new AttackFactory();
 	// -----------------------------------------------------------------
 	// calls base constructor and gets name of hero from user
