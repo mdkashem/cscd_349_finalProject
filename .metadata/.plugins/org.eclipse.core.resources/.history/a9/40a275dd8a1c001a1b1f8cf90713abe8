@@ -51,10 +51,7 @@ import java.util.Scanner;
     				dungeon[row1][col1] = new Room(0,0,0,0);
     			}
     			
-    			//setting entrance and exit
-    			dungeon[0][0].map.clear();
     			dungeon[0][0].map.put("Entrance", 1);
-    			dungeon[4][4].map.clear();
     			dungeon[4][4].map.put("Exit", 1);
     			
     			

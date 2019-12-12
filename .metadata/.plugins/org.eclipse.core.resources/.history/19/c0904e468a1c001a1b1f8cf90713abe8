@@ -132,10 +132,10 @@ public class Room {
 		
 		
 		
-		if(map.containsKey("Entrance")) {
+		if(map.containsValue(entrance)) {
 			randomChar = 'I';
 		}
-		else if(map.containsKey("Exit")) {
+		else if(map.containsValue(exit)) {
 			randomChar = 'O';
 		}
 		else if(map.containsKey("Health Potion")) {
