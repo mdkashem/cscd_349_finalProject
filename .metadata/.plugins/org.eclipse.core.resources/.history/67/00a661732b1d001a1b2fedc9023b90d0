@@ -131,10 +131,10 @@ public class DungeonAdventure
 							+ "N--S--E--W? ");
 	   
 	   char c = kin.next().charAt(0);
-	   char e = Character.toUpperCase(c);
+	   Character.toUpperCase(c);
 	   
 							
-		if(e == 'N') {
+		if(c == 'N') {
 			if(cur.getN() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -142,7 +142,7 @@ public class DungeonAdventure
 				return 'N';
 			}
 		}
-		else if(e == 'E') {
+		else if(c == 'E') {
 			if(cur.getE() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -150,7 +150,7 @@ public class DungeonAdventure
 				return 'E';
 			}
 		}
-		else if(e == 'S') {
+		else if(c == 'S') {
 			if(cur.getS() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -158,7 +158,7 @@ public class DungeonAdventure
 				return 'S';
 			}
 		}
-		else if(e == 'W') {
+		else if(c == 'W') {
 			if(cur.getW() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -199,9 +199,9 @@ public class DungeonAdventure
 			battle(player, monster);
 		}
 		if(room.map.containsKey("Pit")) {
-			System.out.println("You fall 15 feet into a pit." + "\n");
 			int rn = new Random().nextInt(30);
 			player.subtractHitPoints(rn);
+			System.out.println("You fall 15 feet into a pit." + "\n");
 			System.out.println("Your health is " + player.hitPoints);
 		}
 		if(room.map.containsKey("Health Potion")) {
@@ -217,7 +217,7 @@ public class DungeonAdventure
 								+ "Your total amount of Pillars is " + player.getNumOfPiller() + ".");
 		}
 		if(room.map.containsKey("Entrance")) {
-			System.out.println("You are at the entrance...\n");
+			System.out.println("You are at the entrance...");
 		}
 		if(room.map.containsKey("Exit")) {
 			System.out.println("You have found the exit, do you wish to leave? y/n\n");
@@ -231,7 +231,7 @@ public class DungeonAdventure
 									+ "Pillars!");
 				}
 				else {
-					System.out.println("Congratulations! You have escaped the dungeon!");
+					System.out.println("Congratulations! You have won!");
 					room.map.put("Pit", 500);
 				}
 			}

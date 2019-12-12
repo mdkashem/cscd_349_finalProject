@@ -231,7 +231,7 @@ public class DungeonAdventure
 									+ "Pillars!");
 				}
 				else {
-					System.out.println("Congratulations! You have escaped the dungeon!");
+					System.out.println("Congratulations! You have won!");
 					room.map.put("Pit", 500);
 				}
 			}

@@ -199,9 +199,9 @@ public class DungeonAdventure
 			battle(player, monster);
 		}
 		if(room.map.containsKey("Pit")) {
-			System.out.println("You fall 15 feet into a pit." + "\n");
 			int rn = new Random().nextInt(30);
 			player.subtractHitPoints(rn);
+			System.out.println("You fall 15 feet into a pit." + "\n");
 			System.out.println("Your health is " + player.hitPoints);
 		}
 		if(room.map.containsKey("Health Potion")) {
@@ -231,7 +231,7 @@ public class DungeonAdventure
 									+ "Pillars!");
 				}
 				else {
-					System.out.println("Congratulations! You have escaped the dungeon!");
+					System.out.println("Congratulations! You have won!");
 					room.map.put("Pit", 500);
 				}
 			}
