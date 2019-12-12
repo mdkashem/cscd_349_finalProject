@@ -135,6 +135,7 @@ public class DungeonAdventure
 			else {
 				return 'N';
 			}
+<<<<<<< HEAD
 		}
 		else if(c == 'E') {
 			if(cur.getE() == 1) {
@@ -152,6 +153,25 @@ public class DungeonAdventure
 				return 'S';
 			}
 		}
+=======
+		}
+		else if(c == 'E') {
+			if(cur.getE() == 1) {
+				System.out.println("You ran into a wall, choose another direction.");
+			} 
+			else {
+				return 'E';
+			}
+		}
+		else if(c == 'S') {
+			if(cur.getS() == 1) {
+				System.out.println("You ran into a wall, choose another direction.");
+			} 
+			else {
+				return 'S';
+			}
+		}
+>>>>>>> eef6b9ce713971111dbfcd07add9b0e0b9e5898b
 		else if(c == 'W') {
 			if(cur.getW() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");

@@ -1,0 +1,19 @@
+package dungeon;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class WarriorTest {
+
+	@Test
+	void testBattleChoices() {
+		Warrior testWarrior = new Warrior();		
+		Ogre opponent = new Ogre();
+		
+		testWarrior.battleChoices(opponent);
+		
+		assertTrue(testWarrior.getHitPoints() < 25 || opponent.getHitPoints() < 200);
+	}
+
+}

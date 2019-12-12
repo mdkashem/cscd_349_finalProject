@@ -1,4 +1,4 @@
-/*package dungeon;
+package dungeon;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,4 +21,3 @@ class BaseAttackTest {
 	}
 
 }
-*/
