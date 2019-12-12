@@ -8,6 +8,18 @@ public class Originator {
 	private int numOfPillars;
 	
 	
+
+	public Memento saveToMemento() {
+		 System.out.println("Originator: Saving to Memento.");
+		 return new Memento(nameOfHero,numOfHealing,numOfVision,numOfPillars);
+		 }
+	public void restoreFromMemento(Memento memento) {
+		nameOfHero = memento.getSavedNameOfHero();
+		numOfHealing=memento.getSavedNumOfHealing();
+		numOfVision=memento.getSavedNumOfVision();
+		numOfPillars= memento.getSavedNumOfPillars();
+		 System.out.println("Originator: State after restoring from Memento: " );
+		 }
 	public void setNameOfHero(String name) {
 		 System.out.println("Originator: Setting state to " + nameOfHero);
 		 this.nameOfHero = name;
@@ -24,17 +36,20 @@ public class Originator {
 		 System.out.println("Originator: Setting state to " + numOfPillars);
 		 this.numOfPillars = pillars;
 		 }
-	public Memento saveToMemento() {
-		 System.out.println("Originator: Saving to Memento.");
-		 return new Memento(nameOfHero,numOfHealing,numOfVision,numOfPillars);
-		 }
-	public void restoreFromMemento(Memento memento) {
-		nameOfHero = memento.getSavedNameOfHero();
-		numOfHealing=memento.getSavedNumOfHealing();
-		numOfVision=memento.getSavedNumOfVision();
-		numOfPillars= memento.getSavedNumOfPillars();
-		 System.out.println("Originator: State after restoring from Memento: " );
-		 }
+	
+	public String getNameOfHero() {
+		return nameOfHero;
+	}
+	public int getNumOfHealing() {
+		return numOfHealing;
+	}
+	public int getNumOfVision() {
+		return numOfVision;
+	}
+	public int getNumOfPillars() {
+		return numOfPillars;
+	}
+	
 	
 	
 	
