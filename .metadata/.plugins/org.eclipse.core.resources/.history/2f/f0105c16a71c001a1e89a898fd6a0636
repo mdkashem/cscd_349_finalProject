@@ -1,3 +1,4 @@
+package dungeon;
 
 
 
@@ -59,22 +60,39 @@ public class DungeonAdventure
 		Hero theHero;
 		Monster theMonster;
 		
-
+		Dungeon dungeon = new Dungeon(5,5);
+		
+		
+		
+		System.out.println("You wake up in a dark room...");
 		
 		
 		
 		do
 		{
 			theHero = factory.createHero();
-		    theMonster = monster.generateMonster();
-			battle(theHero, theMonster);
+		    //theMonster = monster.generateMonster();
+			//battle(theHero, theMonster);
+			movePlayer(theHero,dungeon);
 
 		} while (playAgain());
 
     }//end main method
     
     
-   
+   public static void movePlayer(Hero player, Dungeon dungeon) {
+	   Scanner kin = new Scanner(System.in);
+		System.out.println("Which direction do you want to go?: \n"
+							+ "N, S, E, W? ");
+							
+		if(kin.next().equalsIgnoreCase("N")) {
+			if(dungeon.) {
+				System.out.println("You ran into a wall, choose another direction.");
+			} else {
+				
+			}
+		}
+   }
    
 
 	 	
@@ -101,7 +119,7 @@ goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
 	public static void battle(Hero theHero, Monster theMonster)
-	{
+	{   AttackFactory MonsterAttackFactory = new AttackFactory();
 		
 		Scanner kb = new Scanner(System.in);
 		char pause = 'p';
@@ -117,7 +135,8 @@ user has the option of quitting.
 
 			//monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
-			    theMonster.attack(theHero);
+				MonsterAttackFactory.getBaseAttack("Base Attack ").attack(theHero, theMonster);;
+			    //theMonster.attack(theHero);
 
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");

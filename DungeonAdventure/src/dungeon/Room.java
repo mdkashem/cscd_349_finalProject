@@ -17,7 +17,7 @@ public class Room {
 	private Object pillar;
 	private int healingPotion;
 	private int pit;
-	//private MonsterFactory Monster;
+	private Hero hero;
 	
 	
 	protected HashMap<String, Object> map = new HashMap();
@@ -30,7 +30,7 @@ public class Room {
 		this.S = S;
 		this.W = W;
 		
-		if(Math.random() <= .7) {
+		if(Math.random() <= .4) {
 			map.put("Monster", new MonsterFactory().generateMonster());
 		}
 		if(Math.random() <= .3) {
@@ -40,6 +40,7 @@ public class Room {
 			map.put("Health Potion", 1);
 		}
 		
+		this.toString();
 		
 	}
 	
@@ -121,7 +122,14 @@ public class Room {
 		this.exit = exit;
 	}
 
-	
+	public void setHero(Hero hero) {
+		this.hero = hero;
+	}
+
+	public Hero getHero() {
+		return hero;
+	}
+
 	public String toString() {
 		char randomChar = 'E';
 		
@@ -135,22 +143,22 @@ public class Room {
 		if(map.containsKey("Entrance")) {
 			randomChar = 'I';
 		}
-		else if(map.containsKey("Exit")) {
+		if(map.containsKey("Exit")) {
 			randomChar = 'O';
 		}
-		else if(map.containsKey("Health Potion")) {
+		if(map.containsKey("Health Potion")) {
 			randomChar = 'H';
 		}
-		else if(map.containsKey("Monster")) {
+		if(map.containsKey("Monster")) {
 			randomChar = 'X';
 		}
-		else if(map.containsKey("Pit")) {
+		if(map.containsKey("Pit")) {
 			randomChar = 'P';
 		}
-		else if(map.isEmpty()) {
+		if(map.isEmpty()) {
 			randomChar = 'E';
 		}
-		else if (map.size() > 1) {
+		if (map.size() > 1) {
 			randomChar = 'M';
 		}
 		
@@ -195,33 +203,35 @@ public class Room {
 	
 	
 	
-	public boolean hasPillar() {
-		if(this.getPillar() != null) {
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean hasEntrance() { 
-		if(this.getEntrance() != null) {
-			return true;
-		  } 
-		  return false;
-	  }
-	  
-	  public boolean hasExit() {
-		  if(this.getExit() != null) {
-			  return true;
-		  }
-		  return false; 
-	  }
+//	public boolean hasPillar() {
+//		if(this.getPillar() != null) {
+//			return true;
+//		}
+//		return false;
+//	}
+//	
+//	public boolean hasEntrance() { 
+//		if(this.getEntrance() != null) {
+//			return true;
+//		  } 
+//		  return false;
+//	  }
+//	  
+//	  public boolean hasExit() {
+//		  if(this.getExit() != null) {
+//			  return true;
+//		  }
+//		  return false; 
+//	  }
 	
 	  public void playerLocation() {
 		this.toString();
 		}
 	  
 	  
-	 
+	  public void spawn(Hero player) {
+			this.map.put("Hero", player);
+		}
 	
 	
 	

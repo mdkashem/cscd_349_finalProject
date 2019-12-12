@@ -1,16 +1,24 @@
 package dungeon;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
 	public class Dungeon {
 
+		
+		private int row;
+		private int col;
+		
 	public Dungeon(int row, int col) {
-		Room[][] dungeon = new Room[row][col];
 		
+		this.row = row;
+		this.col = col;
+	}
+	
+	public Room[][] createDungeon() {
 		
-	    
-    	for(int row1 = 0; row1 < col; row1++) {
+		Room[][] dungeon = new Room[this.row][this.col];
+		
+		//placing walls and filling rooms
+		for(int row1 = 0; row1 < col; row1++) {
     		for(int col1 = 0; col1 < row; col1++) {
     			//top left corner
     			if(row1 == 0 && col1 == 0) {
@@ -47,27 +55,34 @@ import java.util.Scanner;
     			else if(row1 == 4 &&  (col1 == 1 || col1 == 2 || col1 == 3)) {
     				dungeon[row1][col1] = new Room(0,0,1,0);
     			}
+    			//default room(no walls)
     			else {
     				dungeon[row1][col1] = new Room(0,0,0,0);
     			}
     			
-    			//setting entrance and exit
-    			dungeon[0][0].map.clear();
-    			dungeon[0][0].map.put("Entrance", 1);
-    			dungeon[4][4].map.clear();
-    			dungeon[4][4].map.put("Exit", 1);
+    			
     			
     			
     		}
     	}
     	
-    	//dungeon.toString();
+    	//setting entrance and exit
+    			dungeon[0][0].map.clear();
+    			dungeon[0][0].map.put("Entrance", 1);
+    			dungeon[4][4].map.clear();
+    			dungeon[4][4].map.put("Exit", 1);
+    	
+    	//placing pillars randomly into
+    	//four separate rooms
     	int randoRow = new Random().nextInt(5);
     	int randoCol = new Random().nextInt(5);
     	int count = 0;
     	
     	while(count != 4) {
-			if(dungeon[randoRow][randoCol].hasPillar() || dungeon[randoRow][randoCol].hasEntrance() || dungeon[randoRow][randoCol].hasExit()) {
+			while(dungeon[randoRow][randoCol].map.containsKey("Pillar") || 
+					dungeon[randoRow][randoCol].map.containsKey("Entrance") ||
+					dungeon[randoRow][randoCol].map.containsKey("Exit")) {
+				
 				randoRow = new Random().nextInt(5);
 				randoCol = new Random().nextInt(5);
 			}
@@ -75,90 +90,29 @@ import java.util.Scanner;
 			count++;
 		}
     	
+    	return dungeon;
     	
 	}
-	
-	
 
 	
-	public boolean isDoor(int wall) {
-		return wall == 1;
-
-    }
-
+//	public boolean isDoor(int wall) {
+//		return wall == 1;
+//
+//    }
 	
-
-	public void setSpawn(int row, int col) {
-
+	
+	public Room playerLocation(int x, int y, Room[][] room) {
+		return room[x][y];
+	}
+	
+	public void printDungeon() {
 		
-	}
-
-	
-	public void movePlayer(DungeonCharacter player, Room room) {
-		Scanner kin = new Scanner(System.in);
-		System.out.println("Which direction do you want to go?: \n"
-							+ "N, S, E, W? ");
-							
-		if(kin.next().equalsIgnoreCase("N")) {
-			if(room.getN() == 1) {
-				System.out.println("You ran into a wall, choose another direction.");
-			}
-		}
-	}
-	
-	public void enterRoom() {
-		
-	}
-	
-	public void playerLocation() {
-		
-	}
-	
-
-	public void setExitDoor(Room[][] exit) {
-
-		int row = new Random().nextInt(6);
-
-		int col = new Random().nextInt(6);
-
-		
-
-		if(!exit[row][col].hasEntrance()) {
-
-			exit[row][col].getExit();
-
-		}
-
-		else {
-
-			row = new Random().nextInt(6);
-
-			col = new Random().nextInt(6);
-
-			exit[row][col].getExit();
-
-		}
-
-	}
-
-	
-
-	 
-	  public String location() {
-		  return "";
-	  }
-
-	 
-
-
-	public void printDungeon(Room[][] dungeon) {
-
-		for(int row1 = 0; row1 < dungeon.length; row1++) {
-    		for(int col1 = 0; col1 < dungeon[row1].length; col1++) {
-    			System.out.println(dungeon[row1][col1] + " ");
-    		
+		for(int row1 = 0; row1 < col; row1++) {
+    		for(int col1 = 0; col1 < row; col1++) {
+    			this.toString();
     		}
 		}
+
 	}
 
 }

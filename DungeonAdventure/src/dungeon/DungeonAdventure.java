@@ -3,6 +3,7 @@ package dungeon;
 
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -60,24 +61,47 @@ public class DungeonAdventure
 		Hero theHero;
 		Monster theMonster;
 		
-		Dungeon dungeon = new Dungeon(5,5);
+		int x = 0;
+		int y = 0;
 		
+		Dungeon startingDungeon = new Dungeon(5,5);
+		Room[][] dungeon = startingDungeon.createDungeon();
+		
+		
+		//dungeon.printDungeon();
+		
+		
+		theHero = factory.createHero();
+		dungeon[0][0].spawn(theHero);
+		startingDungeon.playerLocation(x, y, dungeon);
 		System.out.println("You wake up in a dark room...");
-		
-		
-		
+		//movePlayer(theHero, dungeon);
 		do
 		{
-			theHero = factory.createHero();
+			
+			
 		    theMonster = monster.generateMonster();
 			battle(theHero, theMonster);
+			
 
 		} while (playAgain());
 
     }//end main method
     
     
-   
+   public static void movePlayer(Hero player, Room[][] dungeon) {
+	   Scanner kin = new Scanner(System.in);
+		System.out.println("Which direction do you want to go?: \n"
+							+ "N, S, E, W? ");
+							
+		if(kin.next().equalsIgnoreCase("N")) {
+//			if() {
+//				System.out.println("You ran into a wall, choose another direction.");
+//			} else {
+//				
+//			}
+		}
+   }
    
 
 	 	
@@ -95,6 +119,36 @@ public class DungeonAdventure
 	 
 		return false;
 	}//end playAgain method
+	
+	//enterRoom is the play-by-play of
+	//what happens when entering a new room
+	public void enterRoom(Room room) {
+		Hero player = (Hero) room.map.get("Hero");
+		
+		if(room.map.containsKey("Monster")) {
+			Monster monster = (Monster) room.map.get("Monster");
+			battle(player, monster);
+		}
+		if(room.map.containsKey("Pit")) {
+			int rn = new Random().nextInt(30);
+			player.subtractHitPoints(rn);
+			System.out.println("You fall 15 feet into a pit." + "\n");
+		}
+		if(room.map.containsKey("Health Potion")) {
+			int rn = new Random().nextInt(30);
+			player.addHitPoints(rn);
+		}
+		if(room.map.containsKey("Pillar")) {
+			player.numOfPiller++;
+			System.out.println("Congratulations! You have found a Pillar. \n"
+								+ "Your total amount of Pillars is " + player.numOfPiller);
+		}
+		if(room.map.containsKey("Exit")) {
+			
+		}
+		Scanner kin = new Scanner(System.in);
+		System.out.println("");
+	}
 
 
 /*-------------------------------------------------------------------
