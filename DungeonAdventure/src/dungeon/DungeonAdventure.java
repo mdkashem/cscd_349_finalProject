@@ -2,6 +2,11 @@ package dungeon;
 
 
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -301,6 +306,50 @@ user has the option of quitting.
 			System.out.println("Quitters never win ;-)");
 
 	}//end battle method
+	
+	public static void saveGame(Hero player, Dungeon dungeon){
+		CareTaker caretaker = new CareTaker();
+		caretaker.SavedToFile(player.name, player.getNumOfHealing(), player.getNumOfVision(), player.getNumOfPiller());
+		try {
+	         FileOutputStream fileOut =
+	         new FileOutputStream("savedDungeon.ser");
+	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
+	         out.writeObject(dungeon);
+	         out.close();
+	         fileOut.close();
+	         System.out.println("\nDungeon saved successfully");
+	      } catch (IOException i) {
+	         i.printStackTrace();
+	      }
+		
+	}
+	public static Dungeon loadGame(Hero player){
+		CareTaker caretaker = new CareTaker();
+		player.name=caretaker.loadState().getNameOfHero();
+		player.setNumOfHealing(caretaker.loadState().getNumOfHealing());
+		player.setNumOfVision(caretaker.loadState().getNumOfVision());
+		player.setNumOfPiller(caretaker.loadState().getNumOfPillars());
+		
+		Dungeon e = null;
+	      try {
+	         FileInputStream fileIn = new FileInputStream("savedDungeon.ser");
+	         ObjectInputStream in = new ObjectInputStream(fileIn);
+	         e = (Dungeon) in.readObject();
+	         in.close();
+	         fileIn.close();
+	      } catch (IOException i) {
+	         i.printStackTrace();
+	         //return;
+	      } catch (ClassNotFoundException c) {
+	         System.out.println(" Dungeon  not found");
+	         c.printStackTrace();
+	        // return;
+	      }
+	      
+		
+		
+		return e;
+	}
 
 
 }//end Dungeon class
