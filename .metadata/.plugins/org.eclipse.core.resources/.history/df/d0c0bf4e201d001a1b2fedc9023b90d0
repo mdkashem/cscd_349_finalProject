@@ -200,6 +200,59 @@ public class Room {
 		
 	}
 	
+	public static void enterRoom(Room room) {
+		Hero player = (Hero) room.map.get("Hero");
+		Scanner kb = new Scanner(System.in);
+		
+		if(room.map.containsKey("Monster")) {
+			Monster monster = (Monster) room.map.get("Monster");
+			battle(player, monster);
+		}
+		if(room.map.containsKey("Pit")) {
+			int rn = new Random().nextInt(30);
+			player.subtractHitPoints(rn);
+			System.out.println("You fall 15 feet into a pit." + "\n");
+		}
+		if(room.map.containsKey("Health Potion")) {
+			int rn = new Random().nextInt(30);
+			player.addHitPoints(rn);
+			System.out.println("You drink a suspicious liquid...but feel a burst of energy. \n"
+					+ "Your wounds begin to close as your health has increased by " + rn);
+		}
+		if(room.map.containsKey("Pillar")) {
+			player.setNumOfPiller(player.getNumOfPiller() + 1);
+			System.out.println("Congratulations! You have found a Pillar. \n"
+								+ "Your total amount of Pillars is " + player.getNumOfPiller());
+		}
+		if(room.map.containsKey("Entrance")) {
+			System.out.println("You are at the entrance...");
+		}
+		if(room.map.containsKey("Exit")) {
+			System.out.println("You have found the exit, do you wish to leave? y/n\n");
+			//String check = kb.next().ign;
+			if(kb.next().equalsIgnoreCase("Y")) {
+				if(player.getNumOfPiller() == 1) {
+					System.out.println("You miscreant. You only have " + player.getNumOfPiller()
+					+ "Pillar!");
+				}
+				else if(player.getNumOfPiller() < 4) {
+				System.out.println("You miscreant. You only have " + player.getNumOfPiller()
+									+ "Pillars!");
+				}
+				else {
+					System.out.println("Congratulations! You have won!");
+				}
+			}
+			else if(kb.next().equalsIgnoreCase("N")) {
+				
+			}
+			
+		}
+		Scanner kin = new Scanner(System.in);
+		System.out.println("");
+	}
+	  
+	  
 	  public void spawn(Hero player) {
 			this.map.put("Hero", player);
 		}
@@ -207,7 +260,9 @@ public class Room {
 
 
 
-	
+	public Room playerLocation(int x, int y, Room room) {
+		return room[x][y];
+	}
 	
 	
 	

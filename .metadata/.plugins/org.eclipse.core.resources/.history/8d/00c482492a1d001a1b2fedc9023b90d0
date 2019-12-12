@@ -111,9 +111,6 @@ public class DungeonAdventure
 					location.map.put("Hero", temp);
 					enterRoom(location);
 				}
-				if(direction == 'F') {
-					System.out.println("Please choose N--S--E--W\n\n");
-				}
 
 			} while(!location.map.containsValue(500));
 			

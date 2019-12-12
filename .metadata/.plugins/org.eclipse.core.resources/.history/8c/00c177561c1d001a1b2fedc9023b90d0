@@ -200,14 +200,38 @@ public class Room {
 		
 	}
 	
+	
+	
+	
+//	public boolean hasPillar() {
+//		if(this.getPillar() != null) {
+//			return true;
+//		}
+//		return false;
+//	}
+//	
+//	public boolean hasEntrance() { 
+//		if(this.getEntrance() != null) {
+//			return true;
+//		  } 
+//		  return false;
+//	  }
+//	  
+//	  public boolean hasExit() {
+//		  if(this.getExit() != null) {
+//			  return true;
+//		  }
+//		  return false; 
+//	  }
+	
+	  public void playerLocation() {
+		this.toString();
+		}
+	  
+	  
 	  public void spawn(Hero player) {
 			this.map.put("Hero", player);
 		}
-
-
-
-
-	
 	
 	
 	

@@ -112,7 +112,7 @@ public class DungeonAdventure
 					enterRoom(location);
 				}
 				if(direction == 'F') {
-					System.out.println("Please choose N--S--E--W\n\n");
+					System.out.println("Please choose N--S--E--W");
 				}
 
 			} while(!location.map.containsValue(500));
