@@ -43,9 +43,9 @@ public class Warrior extends Hero
 
 		    switch (choice)
 		    {
-			    case 1: attackFactory.getBaseAttack("Base Attack ");
+			    case 1: attackFactory.getBaseAttack("Base Attack ").attack(this, opponent);
 			        break;
-			    case 2: attackFactory.getCrushingBlow("Crushing Blow on Opponant");
+			    case 2: attackFactory.getCrushingBlow("Crushing Blow on Opponant").attack(this, opponent);
 			        break;
 			    default:
 			        System.out.println("invalid choice!");

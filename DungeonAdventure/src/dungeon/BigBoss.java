@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class BigBoss extends Hero{
 	
 	public BigBoss(){
-		super("Big Boss", 325, 4, .8, 35, 60, .2);
+		super("Big Boss", 25, 4, 1, 35, 60, .2);
 	}
 
 
@@ -28,18 +28,18 @@ public class BigBoss extends Hero{
 		    switch (choice)
 		    {
 			    case 1: 
-			    	
-			    	attackFactory.getFireBallAttack("Fire Ball Attack");
+			    	//attack(opponent);
+			    	attackFactory.getFireBallAttack("Fire Ball Attack").attack(this, opponent);
 			    	
 			        break;
 			    case 2: 
 			    	
-			    	attackFactory.getCrushingBlow("Crushing Blow Attach");
+			    	attackFactory.getCrushingBlow("Crushing Blow Attach").attack(this, opponent);
 			    	
 			        break;
                  case 3: 
 			    	
-			    	attackFactory.getBaseAttack("Base Attack ");
+			    	attackFactory.getBaseAttack("Base Attack ").attack(this, opponent);
 			    	
 			        break;
 			    default:

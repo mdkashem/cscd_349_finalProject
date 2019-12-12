@@ -104,7 +104,7 @@ goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
 	public static void battle(Hero theHero, Monster theMonster)
-	{
+	{   AttackFactory MonsterAttackFactory = new AttackFactory();
 		
 		Scanner kb = new Scanner(System.in);
 		char pause = 'p';
@@ -120,7 +120,8 @@ user has the option of quitting.
 
 			//monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
-			    theMonster.attack(theHero);
+				MonsterAttackFactory.getBaseAttack("Base Attack ").attack(theHero, theMonster);;
+			    //theMonster.attack(theHero);
 
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");

@@ -29,9 +29,9 @@ public class KingKhan extends Hero{
 
 		    switch (choice)
 		    {
-			    case 1: attackFactory.getFireBallAttack("Fire Ball Attack");
+			    case 1: attackFactory.getFireBallAttack("Fire Ball Attack").attack(this, opponent);
 			        break;
-			    case 2: attackFactory.getCrushingBlow("Crushing Blow");
+			    case 2: attackFactory.getCrushingBlow("Crushing Blow").attack(this, opponent);
 			        break;
 			    default:
 			        System.out.println("invalid choice!");

@@ -58,7 +58,7 @@ public class Sorceress extends Hero
 
 		    switch (choice)
 		    {
-			    case 1: attackFactory.getBaseAttack("Base Attack ");
+			    case 1: attackFactory.getBaseAttack("Base Attack ").attack(this, opponent);
 			        break;
 			    case 2: increaseHitPoints();
 			        break;

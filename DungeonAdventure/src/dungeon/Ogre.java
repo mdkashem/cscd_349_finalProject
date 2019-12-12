@@ -25,8 +25,8 @@ public class Ogre extends Monster
 	{
 		System.out.println(name + " slowly swings a club toward's " +
 							opponent.getName() + ":");
-		//super.attack(opponent);
-		MonsterAttackFactory.getBaseAttack("Base Attack ");
+		super.attack(opponent);
+		//MonsterAttackFactory.getBaseAttack("Base Attack ");
 
 	}//end override of attack
 

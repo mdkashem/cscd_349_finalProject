@@ -38,7 +38,7 @@ public class Thief extends Hero
 			System.out.println("Surprise attack was successful!\n" +
 								name + " gets an additional turn.");
 			numTurns++;
-			attack(opponent);
+			attackFactory.getBaseAttack("Base Attack ").attack(this, opponent);
 		}//end surprise
 		else if (surprise >= .9)
 		{
@@ -46,7 +46,7 @@ public class Thief extends Hero
 								" blocked your attack!");
 		}
 		else
-		    attack(opponent);
+			attackFactory.getBaseAttack("Base Attack ").attack(this, opponent);
 
 
 	}//end surpriseAttack method
@@ -67,7 +67,7 @@ public class Thief extends Hero
 		    choice = kb.nextInt();
 		    switch (choice)
 		    {
-			    case 1: attack(opponent);
+			    case 1: attackFactory.getBaseAttack("Base Attack ").attack(this, opponent);
 			        break;
 			    case 2: surpriseAttack(opponent);
 			        break;
