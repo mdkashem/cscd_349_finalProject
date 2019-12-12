@@ -31,7 +31,7 @@ public class AttackFactory {
 	public Attack getBaseAttack(String name ){
 		Attack attack = attacks.get(name);
 		if(attack==null){
-			attack = new CrushingBlow(name);
+			attack = new BaseAttack(name);
 			attacks.put(name, attack);
 			
 		}

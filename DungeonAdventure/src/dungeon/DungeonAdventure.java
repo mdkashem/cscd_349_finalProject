@@ -7,7 +7,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
-
  * Title: Dungeon.java
  *
  * Description: Driver file for Heroes and Monsters project
@@ -44,17 +43,14 @@ import java.util.Scanner;
 /*
   This class is the driver file for the Heroes and Monsters project.  It will
   do the following:
-
   1.  Allow the user to choose a hero
   2.  Randomly select a monster
   3.  Allow the hero to battle the monster
-
   Once a battle concludes, the user has the option of repeating the above
-
 */
 public class DungeonAdventure
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
 	{
      HeroFactory factory = new HeroFactory();
      MonsterFactory monster = new MonsterFactory();
@@ -71,17 +67,51 @@ public class DungeonAdventure
 		//dungeon.printDungeon();
 		
 		
-		theHero = factory.createHero();
-		dungeon[0][0].spawn(theHero);
-		startingDungeon.playerLocation(x, y, dungeon);
-		System.out.println("You wake up in a dark room...");
+		
 		//movePlayer(theHero, dungeon);
 		do
 		{
+			theHero = factory.createHero();
+			dungeon[0][0].spawn(theHero);
+			Room location = startingDungeon.playerLocation(x, y, dungeon);
+			System.out.println("You wake up in a dark room...\n\n");
 			
 			
-		    theMonster = monster.generateMonster();
-			battle(theHero, theMonster);
+			do {
+				char direction = movePlayer(theHero, location);
+				if(direction == 'N') {
+					Hero temp = (Hero) location.map.get("Hero");
+					location.map.remove("Hero");
+					location = startingDungeon.playerLocation(x--, y, dungeon);
+					location.map.put("Hero", temp);
+					enterRoom(location);
+				}
+				if(direction == 'E') {
+					Hero temp = (Hero) location.map.get("Hero");
+					location.map.remove("Hero");
+					location = startingDungeon.playerLocation(x, ++y, dungeon);
+					location.map.put("Hero", temp);
+					enterRoom(location);
+				}
+				if(direction == 'S') {
+					Hero temp = (Hero) location.map.get("Hero");
+					location.map.remove("Hero");
+					location = startingDungeon.playerLocation(x++, y, dungeon);
+					location.map.put("Hero", temp);
+					enterRoom(location);
+				}
+				if(direction == 'W') {
+					Hero temp = (Hero) location.map.get("Hero");
+					location.map.remove("Hero");
+					location = startingDungeon.playerLocation(x, y--, dungeon);
+					location.map.put("Hero", temp);
+					enterRoom(location);
+				}
+				if(direction == 'F') {
+					System.out.println("Please choose N--S--E--W\n\n");
+				}
+
+			} while(!location.map.containsValue(500));
 			
 
 		} while (playAgain());
@@ -89,18 +119,50 @@ public class DungeonAdventure
     }//end main method
     
     
-   public static void movePlayer(Hero player, Room[][] dungeon) {
+   public static char movePlayer(Hero player, Room cur) throws Exception{
 	   Scanner kin = new Scanner(System.in);
-		System.out.println("Which direction do you want to go?: \n"
-							+ "N, S, E, W? ");
+	   System.out.println("Current Room: ");
+	   System.out.println(cur.toString());
+	   System.out.println("Which direction do you want to go?: \n"
+							+ "N--S--E--W? ");
+	   
+	   char c = kin.next().charAt(0);
 							
-		if(kin.next().equalsIgnoreCase("N")) {
-//			if() {
-//				System.out.println("You ran into a wall, choose another direction.");
-//			} else {
-//				
-//			}
+		if(c == 'N') {
+			if(cur.getN() == 1) {
+				System.out.println("You ran into a wall, choose another direction.");
+			} 
+			else {
+				return 'N';
+			}
 		}
+		else if(c == 'E') {
+			if(cur.getE() == 1) {
+				System.out.println("You ran into a wall, choose another direction.");
+			} 
+			else {
+				return 'E';
+			}
+		}
+		else if(c == 'S') {
+			if(cur.getS() == 1) {
+				System.out.println("You ran into a wall, choose another direction.");
+			} 
+			else {
+				return 'S';
+			}
+		}
+		else if(c == 'W') {
+			if(cur.getW() == 1) {
+				System.out.println("You ran into a wall, choose another direction.");
+			} 
+			else {
+				return 'W';
+			}
+		}
+		
+		char incorrect = 'F';
+		return incorrect;
    }
    
 
@@ -122,8 +184,9 @@ public class DungeonAdventure
 	
 	//enterRoom is the play-by-play of
 	//what happens when entering a new room
-	public void enterRoom(Room room) {
+	public static void enterRoom(Room room) {
 		Hero player = (Hero) room.map.get("Hero");
+		Scanner kb = new Scanner(System.in);
 		
 		if(room.map.containsKey("Monster")) {
 			Monster monster = (Monster) room.map.get("Monster");
@@ -133,17 +196,42 @@ public class DungeonAdventure
 			int rn = new Random().nextInt(30);
 			player.subtractHitPoints(rn);
 			System.out.println("You fall 15 feet into a pit." + "\n");
+			System.out.println("Your health is " + player.hitPoints);
 		}
 		if(room.map.containsKey("Health Potion")) {
 			int rn = new Random().nextInt(30);
 			player.addHitPoints(rn);
+			System.out.println("You drink a suspicious liquid...but feel a burst of energy. \n"
+					+ "Your wounds begin to close as your health has increased by " + rn);
+			System.out.println("Your health is " + player.hitPoints);
 		}
 		if(room.map.containsKey("Pillar")) {
-			player.numOfPiller++;
+			player.setNumOfPiller(player.getNumOfPiller() + 1);
 			System.out.println("Congratulations! You have found a Pillar. \n"
-								+ "Your total amount of Pillars is " + player.numOfPiller);
+								+ "Your total amount of Pillars is " + player.getNumOfPiller() + ".");
+		}
+		if(room.map.containsKey("Entrance")) {
+			System.out.println("You are at the entrance...");
 		}
 		if(room.map.containsKey("Exit")) {
+			System.out.println("You have found the exit, do you wish to leave? y/n\n");
+			if(kb.next().equalsIgnoreCase("Y")) {
+				if(player.getNumOfPiller() == 1) {
+					System.out.println("You miscreant. You only have " + player.getNumOfPiller()
+					+ "Pillar!");
+				}
+				else if(player.getNumOfPiller() < 4) {
+				System.out.println("You miscreant. You only have " + player.getNumOfPiller()
+									+ "Pillars!");
+				}
+				else {
+					System.out.println("Congratulations! You have won!");
+					room.map.put("Pit", 500);
+				}
+			}
+			else if(kb.next().equalsIgnoreCase("N")) {
+				
+			}
 			
 		}
 		Scanner kin = new Scanner(System.in);

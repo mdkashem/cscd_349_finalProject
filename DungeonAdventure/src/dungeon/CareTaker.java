@@ -24,7 +24,7 @@ public class CareTaker {
 	         out.writeObject(originator);
 	         out.close();
 	         fileOut.close();
-	         System.out.println("game saved successfully");
+	         System.out.println("Hero's state saved successfully");
 	      } catch (IOException i) {
 	         i.printStackTrace();
 	      }
