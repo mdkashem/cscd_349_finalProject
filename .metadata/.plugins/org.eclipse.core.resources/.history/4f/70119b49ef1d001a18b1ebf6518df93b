@@ -185,8 +185,7 @@ public class DungeonAdventure
 	   System.out.println("What do you wish to do?:\n"
 			   				+ "Move Character? -> M\n"
 			   				+ "Check inventory? -> I\n"
-			   				+ "Save Game? -> S\n"
-			   				+ "Quit Game? -> Q");
+			   				+ "Save Game? -> S\n");
 
 	   
 	   char c = kin.next().charAt(0);
@@ -238,13 +237,9 @@ public class DungeonAdventure
 			   } while(input != 'B');
 			   
 		  }
-		  if(e == 'S') {
+		  if( e == 'S') {
 			  return 'G';
 		  }
-		  if(e == 'Q') {
-			  return 'Q';
-		  }
-		 
 	   } while (e != 'M');
 	   
 	  

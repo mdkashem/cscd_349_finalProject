@@ -9,7 +9,8 @@ import java.util.Scanner;
 		private int row;
 		private int col;
 		
-		
+		private int locationX;
+		private int locationY;
 		
 	public Dungeon(int row, int col) {
 		
