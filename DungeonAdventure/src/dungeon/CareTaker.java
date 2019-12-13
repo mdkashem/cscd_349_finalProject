@@ -9,13 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CareTaker {
-	public void SavedToFile(String Hero, int healing, int vision, int pillars){
+	public void SavedToFile(String Hero, int healing, int vision, int pillars, int locationX, int locationY){
 		//List<Originator.Memento> savedStates = new ArrayList<Originator.Memento>();
 		Originator originator = new Originator();
 		originator.setNameOfHero(Hero);
 		originator.setNumOfHealing(healing);
 		originator.setNumOfVision(vision);
 		originator.setnumOfPillars(pillars);
+		originator.setLocationX(locationX);
+		originator.setLocationY(locationY);
 		//savedStates.add(originator.saveToMemento());
 		try {
 	         FileOutputStream fileOut =

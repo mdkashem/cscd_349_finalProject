@@ -34,6 +34,7 @@ public abstract class Hero extends DungeonCharacter {
 	private int numOfVision = 0;
 	private int numOfPiller = 0;
 	private int locationX=0;
+	private int locationY=0;
 	public int getLocationX() {
 		return locationX;
 	}
@@ -51,7 +52,7 @@ public abstract class Hero extends DungeonCharacter {
 	}
 
 
-	private int locationY=0;
+
 	public int getNumOfHealing() {
 		return numOfHealing;
 	}

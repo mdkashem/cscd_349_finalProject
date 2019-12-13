@@ -11,37 +11,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * Title: Dungeon.java
- *
- * Description: Driver file for Heroes and Monsters project
- *
- * Copyright:    Copyright (c) 2001
- * Company: Code Dogs Inc.
- * I.M. Knurdy
- *
- * History:
- *  11/4/2001: Wrote program
- *    --created DungeonCharacter class
- *    --created Hero class
- *    --created Monster class
- *    --had Hero battle Monster
- *    --fixed attack quirks (dead monster can no longer attack)
- *    --made Hero and Monster abstract
- *    --created Warrior
- *    --created Ogre
- *    --made Warrior and Ogre battle
- *    --added battleChoices to Hero
- *    --added special skill to Warrior
- *    --made Warrior and Ogre battle
- *    --created Sorceress
- *    --created Thief
- *    --created Skeleton
- *    --created Gremlin
- *    --added game play features to Dungeon.java (this file)
- *  11/27/2001: Finished documenting program
- * version 1.0
- */
+
 
 
 
@@ -50,6 +20,8 @@ public class DungeonAdventure
 {
     public static void main(String[] args) throws Exception
 	{
+    Dungeon startingDungeon;
+   
      HeroFactory factory = new HeroFactory();
      MonsterFactory monster = new MonsterFactory();
 		Hero theHero;
@@ -61,12 +33,20 @@ public class DungeonAdventure
 		int locationX;
 		int locationY;
 		
-		Dungeon startingDungeon = new Dungeon(5,5);
-		Room[][] dungeon = startingDungeon.createDungeon();
-		
 		System.out.println("Load a saved game? -> y/n");
 		char answer = checkSave.next().charAt(0);
 		char yOrN = Character.toUpperCase(answer);
+		if(yOrN == 'Y') {
+			startingDungeon = loadGame(factory.createHero());
+		} else {
+			startingDungeon = new Dungeon(5,5);
+			
+		}
+		
+		
+		
+		Room[][] dungeon = startingDungeon.createDungeon();
+		
 		
 		do
 		{
@@ -74,7 +54,8 @@ public class DungeonAdventure
 			theHero = factory.createHero();
 			dungeon[0][0].spawn(theHero);
 			Room location = startingDungeon.playerLocation(x, y, dungeon);
-			System.out.println(x + " " + y);
+			
+			
 			
 			System.out.println("You wake up in a dark room...\n\n");
 			
@@ -123,6 +104,7 @@ public class DungeonAdventure
 				if(choice == 'G') {
 					saveGame(theHero, startingDungeon);
 				}
+				
 				
 				if(choice == 'V') {
 					int tempUlX = x;
@@ -185,12 +167,28 @@ public class DungeonAdventure
 				if(choice == 'F') {
 					System.out.println("Please choose N--S--E--W\n\n");
 				}
-				System.out.println(x + " " + y);
+				if(choice == 'Q') {
+					Scanner check = new Scanner(System.in);
+					System.out.println("Do you want to save before you quit? -> y/n");
+					char key = check.next().charAt(0);
+					char response = Character.toUpperCase(key);
+					if(response == 'Y') {
+						saveGame(theHero, startingDungeon);
+					}
+					else {
+						System.out.println("Thank you for playing!");
+					}
+					break;
+					
+					
+				}
+				
 				locationX = x;
 				locationY = y;
 				
+				//location = startingDungeon.playerLocation(locationX, locationY, dungeon);
 
-			} while(!location.map.containsValue(500) || theHero.hitPoints == 0);
+			} while(!location.map.containsValue(500) || theHero.hitPoints <= 0);
 			
 
 		} while (playAgain());
@@ -214,7 +212,8 @@ public class DungeonAdventure
 	   System.out.println("What do you wish to do?:\n"
 			   				+ "Move Character? -> M\n"
 			   				+ "Check inventory? -> I\n"
-			   				+ "Save Game? -> S\n");
+			   				+ "Save Game? -> S\n"
+			   				+ "Quit Game? -> Q");
 
 	   
 	   char c = kin.next().charAt(0);
@@ -266,9 +265,13 @@ public class DungeonAdventure
 			   } while(input != 'B');
 			   
 		  }
-		  if( e == 'S') {
+		  if(e == 'S') {
 			  return 'G';
 		  }
+		  if(e == 'Q') {
+			  return 'Q';
+		  }
+		 
 	   } while (e != 'M');
 	   
 	  
