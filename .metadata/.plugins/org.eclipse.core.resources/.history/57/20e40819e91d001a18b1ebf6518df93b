@@ -194,7 +194,7 @@ public class Room {
 		String middle =  w + " " + randomChar + " " + e;
 		String bottom = "* " + s + " *";
 		
-		String boop = 	 "\n" + top + "\n"
+		String boop = 	 top + "\n"
 						+ middle + "\n"
 						+ bottom;
 		

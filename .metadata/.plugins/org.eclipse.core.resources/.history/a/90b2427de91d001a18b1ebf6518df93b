@@ -68,7 +68,7 @@ public class DungeonAdventure
 			dungeon[0][0].spawn(theHero);
 			Room location = startingDungeon.playerLocation(x, y, dungeon);
 			System.out.println("You wake up in a dark room...\n\n");
-			
+			theHero.setNumOfVision(1);
 			
 			do {
 				char choice = movePlayer(theHero, location);
@@ -111,10 +111,6 @@ public class DungeonAdventure
 										+ " Now you have " + theHero.getHitPoints()
 										+ "\n----------------------------------------\n");
 				}
-				if(choice == 'G') {
-					saveGame(theHero, startingDungeon);
-				}
-				
 				if(choice == 'V') {
 					int tempUlX = x;
 					int tempUlY = y;
@@ -136,37 +132,37 @@ public class DungeonAdventure
 					int tempBrY = y;
 					//upper left
 					System.out.println("Upper Left Room");
-					System.out.println(visionOutput(--tempUlX, --tempUlY, startingDungeon, dungeon));
-					System.out.println("      ");
+					System.out.print(visionOutput(--tempUlX, --tempUlY, startingDungeon, dungeon));
+					System.out.print("      ");
 					//direct North
 					System.out.println("Northern Room");
-					System.out.println(visionOutput(--tempNX, tempNY, startingDungeon, dungeon));
-					System.out.println("      ");
+					System.out.print(visionOutput(--tempNX, tempNY, startingDungeon, dungeon));
+					System.out.print("      ");
 					//upper right
 					System.out.println("Upper Right Room");
 					System.out.println(visionOutput(--tempUrX, ++tempUrY, startingDungeon, dungeon));
-					System.out.println("      ");
+					
 					
 					//West
 					System.out.println("Western Room");
-					System.out.println(visionOutput(tempWX, --tempWY, startingDungeon, dungeon));
-					System.out.println("      ");
+					System.out.print(visionOutput(tempWX, --tempWY, startingDungeon, dungeon));
+					System.out.print("      ");
 					//cur
 					System.out.println("Current Room");
-					System.out.println(visionOutput(tempCurX, tempCurY, startingDungeon, dungeon));
-					System.out.println("      ");
+					System.out.print(visionOutput(tempCurX, tempCurY, startingDungeon, dungeon));
+					System.out.print("      ");
 					//East
 					System.out.println("Eastern Room");
 					System.out.println(visionOutput(tempEX, ++tempEY, startingDungeon, dungeon));
-					System.out.println("      ");
+					
 					//bottom left
 					System.out.println("Bottom Left Room");
-					System.out.println(visionOutput(++tempBlX, --tempBlY, startingDungeon, dungeon));
-					System.out.println("      ");
+					System.out.print(visionOutput(++tempBlX, --tempBlY, startingDungeon, dungeon));
+					System.out.print("      ");
 					//South
 					System.out.println("Southern Room");
-					System.out.println(visionOutput(++tempSX, tempSY, startingDungeon, dungeon));
-					System.out.println("      ");
+					System.out.print(visionOutput(++tempSX, tempSY, startingDungeon, dungeon));
+					System.out.print("      ");
 					
 					//bottom right
 					System.out.println("Bottom Right Room");
@@ -252,9 +248,6 @@ public class DungeonAdventure
 				   }
 			   } while(input != 'B');
 			   
-		  }
-		  if( e == 'S') {
-			  return 'G';
 		  }
 	   } while (e != 'M');
 	   

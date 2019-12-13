@@ -68,7 +68,7 @@ public class DungeonAdventure
 			dungeon[0][0].spawn(theHero);
 			Room location = startingDungeon.playerLocation(x, y, dungeon);
 			System.out.println("You wake up in a dark room...\n\n");
-			
+			theHero.setNumOfVision(1);
 			
 			do {
 				char choice = movePlayer(theHero, location);
@@ -111,10 +111,6 @@ public class DungeonAdventure
 										+ " Now you have " + theHero.getHitPoints()
 										+ "\n----------------------------------------\n");
 				}
-				if(choice == 'G') {
-					saveGame(theHero, startingDungeon);
-				}
-				
 				if(choice == 'V') {
 					int tempUlX = x;
 					int tempUlY = y;
@@ -145,7 +141,7 @@ public class DungeonAdventure
 					//upper right
 					System.out.println("Upper Right Room");
 					System.out.println(visionOutput(--tempUrX, ++tempUrY, startingDungeon, dungeon));
-					System.out.println("      ");
+					
 					
 					//West
 					System.out.println("Western Room");
@@ -158,7 +154,7 @@ public class DungeonAdventure
 					//East
 					System.out.println("Eastern Room");
 					System.out.println(visionOutput(tempEX, ++tempEY, startingDungeon, dungeon));
-					System.out.println("      ");
+					
 					//bottom left
 					System.out.println("Bottom Left Room");
 					System.out.println(visionOutput(++tempBlX, --tempBlY, startingDungeon, dungeon));
@@ -252,9 +248,6 @@ public class DungeonAdventure
 				   }
 			   } while(input != 'B');
 			   
-		  }
-		  if( e == 'S') {
-			  return 'G';
 		  }
 	   } while (e != 'M');
 	   
