@@ -33,6 +33,25 @@ public abstract class Hero extends DungeonCharacter {
 	private int numOfHealing = 0;
 	private int numOfVision = 0;
 	private int numOfPiller = 0;
+	private int locationX=0;
+	public int getLocationX() {
+		return locationX;
+	}
+
+	public void setLocationX(int locationX) {
+		this.locationX = locationX;
+	}
+
+	public int getLocationY() {
+		return locationY;
+	}
+
+	public void setLocationY(int locationY) {
+		this.locationY = locationY;
+	}
+
+
+	private int locationY=0;
 	public int getNumOfHealing() {
 		return numOfHealing;
 	}
