@@ -3,13 +3,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 //Done by Kobe Kupp
-	public class Dungeon implements java.io.Serializable {
+	public class Dungeon {
 
 		
 		private int row;
 		private int col;
 		
-		
+		private int locationX;
+		private int locationY;
 		
 	public Dungeon(int row, int col) {
 		

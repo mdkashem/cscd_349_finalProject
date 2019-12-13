@@ -1,16 +1,4 @@
 package dungeon;
-<<<<<<< HEAD
-=======
-import java.util.List; 
-import java.util.ArrayList; 
-public class Originator implements java.io.Serializable {
-	private String nameOfHero;
-	private int numOfHealing;
-	private int numOfVision;
-	private int numOfPillars;
-	
-	
->>>>>>> 4911a6e16f2aaae93643e0658ac8d111771f306f
 
 
 
@@ -32,8 +20,6 @@ public class DungeonAdventure
 {
     public static void main(String[] args) throws Exception
 	{
-    Dungeon startingDungeon;
-   
      HeroFactory factory = new HeroFactory();
      MonsterFactory monster = new MonsterFactory();
 		Hero theHero;
@@ -45,21 +31,15 @@ public class DungeonAdventure
 		int locationX;
 		int locationY;
 		
+		Dungeon startingDungeon = new Dungeon(5,5);
+		Room[][] dungeon = startingDungeon.createDungeon();
+		
 		System.out.println("Load a saved game? -> y/n");
 		char answer = checkSave.next().charAt(0);
 		char yOrN = Character.toUpperCase(answer);
 		if(yOrN == 'Y') {
-			startingDungeon = loadGame(factory.createHero());
-		} else {
-			startingDungeon = new Dungeon(5,5);
 			
-		}
-		
-		
-		
-		Room[][] dungeon = startingDungeon.createDungeon();
-		
-		
+		} 
 		do
 		{
 			

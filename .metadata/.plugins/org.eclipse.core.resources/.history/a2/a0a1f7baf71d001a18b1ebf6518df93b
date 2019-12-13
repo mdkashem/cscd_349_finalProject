@@ -1,0 +1,240 @@
+Load a saved game? -> y/n
+n
+Choose a hero:
+1. Warrior
+2. Sorceress
+3. Thief
+4. King Khan
+5. Big Boss
+3
+Enter character name: Kobe
+You wake up in a dark room...
+
+
+Current Room: 
+
+* * *
+* M |
+* - *
+
+What do you wish to do?:
+Move Character? -> M
+Check inventory? -> I
+Save Game? -> S
+Quit Game? -> Q
+
+m
+Which direction do you want to go?: 
+N--S--E--W? 
+e
+
+You have found a Health Potion!
+Now you have 1!
+You have found a Vision Potion!
+Now you have 1!
+
+Current Room: 
+
+* * *
+| E |
+* - *
+
+What do you wish to do?:
+Move Character? -> M
+Check inventory? -> I
+Save Game? -> S
+Quit Game? -> Q
+i
+-------------------------------------------
+Items in inventory:
+
+Healing Potions: 1
+Pillars: 0
+Vision Potions: 1
+------------------------------------------
+
+Drink Healing Potion? -> H
+Drink Vision Potion? -> V
+Go back? -> B
+
+h
+------------------------------------------
+
+You drink the mysterious liquid and begin to feel refurbished...
+Your wounds begin to heal and you get a burst of energy!
+You gain 16 health points!  Now you have 91
+----------------------------------------
+
+Current Room: 
+
+* * *
+| E |
+* - *
+
+What do you wish to do?:
+Move Character? -> M
+Check inventory? -> I
+Save Game? -> S
+Quit Game? -> Q
+
+m
+Which direction do you want to go?: 
+N--S--E--W? 
+s
+
+Current Room: 
+
+* - *
+| E |
+* - *
+
+What do you wish to do?:
+Move Character? -> M
+Check inventory? -> I
+Save Game? -> S
+Quit Game? -> Q
+
+m
+Which direction do you want to go?: 
+N--S--E--W? 
+e
+Kobe battles Oscar the Ogre
+---------------------------------------------
+Number of turns this round is: 3
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe's attack on Oscar the Ogre failed!
+
+Number of turns remaining is: 2
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 2
+Surprise attack was successful!
+Thief gets an additional turn.
+Kobe did Base Attack  on Oscar the Ogre
+------------------------------
+Oscar the Ogre hit  for <25> points damage.
+Oscar the Ogre now has 175 hit points remaining.
+
+------------------------------
+Number of turns remaining is: 2
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe's attack on Oscar the Ogre failed!
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe's attack on Oscar the Ogre failed!
+
+Oscar the Ogre's attack on Kobe failed!
+
+
+-->q to quit, anything else to continue: ok
+Number of turns this round is: 3
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe did Base Attack  on Oscar the Ogre
+------------------------------
+Oscar the Ogre hit  for <21> points damage.
+Oscar the Ogre now has 154 hit points remaining.
+
+------------------------------
+Number of turns remaining is: 2
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe did Base Attack  on Oscar the Ogre
+------------------------------
+Oscar the Ogre hit  for <25> points damage.
+Oscar the Ogre now has 129 hit points remaining.
+
+------------------------------
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe did Base Attack  on Oscar the Ogre
+------------------------------
+Oscar the Ogre hit  for <21> points damage.
+Oscar the Ogre now has 108 hit points remaining.
+
+------------------------------
+Oscar the Ogre's attack on Kobe failed!
+
+
+-->q to quit, anything else to continue: w
+Number of turns this round is: 3
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe did Base Attack  on Oscar the Ogre
+------------------------------
+Oscar the Ogre hit  for <40> points damage.
+Oscar the Ogre now has 68 hit points remaining.
+
+------------------------------
+Number of turns remaining is: 2
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe did Base Attack  on Oscar the Ogre
+------------------------------
+Oscar the Ogre hit  for <25> points damage.
+Oscar the Ogre now has 43 hit points remaining.
+
+------------------------------
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe did Base Attack  on Oscar the Ogre
+------------------------------
+Oscar the Ogre hit  for <28> points damage.
+Oscar the Ogre now has 15 hit points remaining.
+
+------------------------------
+Oscar the Ogre did Base Attack  on Kobe
+------------------------------
+Kobe hit  for <48> points damage.
+Kobe now has 43 hit points remaining.
+
+------------------------------
+
+-->q to quit, anything else to continue: w
+Number of turns this round is: 3
+1. Attack Opponent
+2. Surprise Attack
+Choose an option: 1
+Kobe did Base Attack  on Oscar the Ogre
+------------------------------
+Oscar the Ogre hit  for <24> points damage.
+Oscar the Ogre now has 0 hit points remaining.
+
+Oscar the Ogre has been killed :-(
+
+-->q to quit, anything else to continue: f
+Kobe was victorious!
+You fall 15 feet into a pit.
+
+Kobe BLOCKED the attack!
+You have found a Health Potion!
+Now you have 2!
+Congratulations! You have found a Pillar. 
+Your total amount of Pillars is 1.
+
+Current Room: 
+
+* - *
+| M |
+* - *
+
+What do you wish to do?:
+Move Character? -> M
+Check inventory? -> I
+Save Game? -> S
+Quit Game? -> Q
