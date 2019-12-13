@@ -20,6 +20,8 @@ public class DungeonAdventure
 {
     public static void main(String[] args) throws Exception
 	{
+    Dungeon startingDungeon;
+   
      HeroFactory factory = new HeroFactory();
      MonsterFactory monster = new MonsterFactory();
 		Hero theHero;
@@ -31,12 +33,20 @@ public class DungeonAdventure
 		int locationX;
 		int locationY;
 		
-		Dungeon startingDungeon = new Dungeon(5,5);
-		Room[][] dungeon = startingDungeon.createDungeon();
-		
 		System.out.println("Load a saved game? -> y/n");
 		char answer = checkSave.next().charAt(0);
 		char yOrN = Character.toUpperCase(answer);
+		if(yOrN == 'Y') {
+			startingDungeon = loadGame(factory.createHero());
+		} else {
+			startingDungeon = new Dungeon(5,5);
+			
+		}
+		
+		
+		
+		Room[][] dungeon = startingDungeon.createDungeon();
+		
 		
 		do
 		{
@@ -44,7 +54,7 @@ public class DungeonAdventure
 			theHero = factory.createHero();
 			dungeon[0][0].spawn(theHero);
 			Room location = startingDungeon.playerLocation(x, y, dungeon);
-			System.out.println(x + " " + y);
+			
 			
 			
 			System.out.println("You wake up in a dark room...\n\n");
@@ -176,6 +186,7 @@ public class DungeonAdventure
 				locationX = x;
 				locationY = y;
 				
+				//location = startingDungeon.playerLocation(locationX, locationY, dungeon);
 
 			} while(!location.map.containsValue(500) || theHero.hitPoints <= 0);
 			

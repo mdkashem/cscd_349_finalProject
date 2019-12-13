@@ -1,0 +1,69 @@
+Load a saved game? -> y/n
+n
+Choose a hero:
+1. Warrior
+2. Sorceress
+3. Thief
+4. King Khan
+5. Big Boss
+3
+Enter character name: Kobe
+You wake up in a dark room...
+
+
+Current Room: 
+
+* * *
+* M |
+* - *
+
+What do you wish to do?:
+Move Character? -> M
+Check inventory? -> I
+Save Game? -> S
+Quit Game? -> Q
+
+m
+Which direction do you want to go?: 
+N--S--E--W? 
+e
+
+Current Room: 
+
+* * *
+| E |
+* - *
+
+What do you wish to do?:
+Move Character? -> M
+Check inventory? -> I
+Save Game? -> S
+Quit Game? -> Q
+i
+-------------------------------------------
+Items in inventory:
+
+Healing Potions: 0
+Pillars: 0
+Vision Potions: 0
+------------------------------------------
+
+Drink Healing Potion? -> H
+Drink Vision Potion? -> V
+Go back? -> B
+
+h
+You do not have any Health Potions :(
+
+Current Room: 
+
+* * *
+| E |
+* - *
+
+What do you wish to do?:
+Move Character? -> M
+Check inventory? -> I
+Save Game? -> S
+Quit Game? -> Q
+
