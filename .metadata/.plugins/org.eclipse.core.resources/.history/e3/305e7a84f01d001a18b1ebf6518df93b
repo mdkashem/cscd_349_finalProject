@@ -95,7 +95,6 @@ public class DungeonAdventure
 					saveGame(theHero, startingDungeon);
 				}
 				
-				
 				if(choice == 'V') {
 					int tempUlX = x;
 					int tempUlY = y;
@@ -156,9 +155,6 @@ public class DungeonAdventure
 				}
 				if(choice == 'F') {
 					System.out.println("Please choose N--S--E--W\n\n");
-				}
-				if(choice == 'Q') {
-					break;
 				}
 				System.out.println(x + " " + y);
 				locationX = x;

@@ -14,7 +14,6 @@ INDEX VERSION 1.131+C:\Users\Kobek\Desktop\CSCD 349\CSCD349-FinalProject\project
 972666350.index
 3079686767.index
 3705452257.index
-2872895671.index
 1897928139.index
 1188785453.index
 3698278747.index
