@@ -58,8 +58,6 @@ public class DungeonAdventure
 		
 		int x = 0;
 		int y = 0;
-		int locationX;
-		int locationY;
 		
 		Dungeon startingDungeon = new Dungeon(5,5);
 		Room[][] dungeon = startingDungeon.createDungeon();
@@ -185,10 +183,6 @@ public class DungeonAdventure
 				if(choice == 'F') {
 					System.out.println("Please choose N--S--E--W\n\n");
 				}
-				System.out.println(x + " " + y);
-				locationX = x;
-				locationY = y;
-				
 
 			} while(!location.map.containsValue(500) || theHero.hitPoints == 0);
 			
