@@ -167,8 +167,8 @@ public class DungeonAdventure
 					}
 					else {
 						System.out.println("Thank you for playing!");
+						break;
 					}
-					break;
 					
 					
 				}

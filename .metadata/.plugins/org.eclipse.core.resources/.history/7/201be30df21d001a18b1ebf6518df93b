@@ -166,13 +166,12 @@ public class DungeonAdventure
 						saveGame(theHero, startingDungeon);
 					}
 					else {
-						System.out.println("Thank you for playing!");
+						break;
 					}
-					break;
 					
 					
 				}
-				
+				System.out.println(x + " " + y);
 				locationX = x;
 				locationY = y;
 				

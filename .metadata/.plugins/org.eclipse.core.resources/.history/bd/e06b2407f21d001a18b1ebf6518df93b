@@ -158,21 +158,9 @@ public class DungeonAdventure
 					System.out.println("Please choose N--S--E--W\n\n");
 				}
 				if(choice == 'Q') {
-					Scanner check = new Scanner(System.in);
-					System.out.println("Do you want to save before you quit? -> y/n");
-					char key = check.next().charAt(0);
-					char response = Character.toUpperCase(key);
-					if(response == 'Y') {
-						saveGame(theHero, startingDungeon);
-					}
-					else {
-						System.out.println("Thank you for playing!");
-					}
 					break;
-					
-					
 				}
-				
+				System.out.println(x + " " + y);
 				locationX = x;
 				locationY = y;
 				
