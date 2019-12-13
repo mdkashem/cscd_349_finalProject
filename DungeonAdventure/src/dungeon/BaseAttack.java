@@ -22,9 +22,12 @@ private String name;
 		{
 			damage = (int)(Math.random() * (attacker.damageMax - attacker.damageMin + 1))
 						+ attacker.damageMin ;
-			defender.subtractHitPoints(damage);
+			
 			System.out.println(attacker.getName() + " did "+getName()+" on " + defender.getName());
-			System.out.println();
+			System.out.println("------------------------------");
+			defender.subtractHitPoints(damage);
+			System.out.println("------------------------------");
+			
 		}//end if can attack
 		else
 		{

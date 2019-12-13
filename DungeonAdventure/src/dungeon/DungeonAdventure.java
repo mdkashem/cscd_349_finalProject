@@ -45,14 +45,7 @@ import java.util.Scanner;
 
 
 
-/*
-  This class is the driver file for the Heroes and Monsters project.  It will
-  do the following:
-  1.  Allow the user to choose a hero
-  2.  Randomly select a monster
-  3.  Allow the hero to battle the monster
-  Once a battle concludes, the user has the option of repeating the above
-*/
+//Done by Kobe Kupp
 public class DungeonAdventure
 {
     public static void main(String[] args) throws Exception
@@ -68,101 +61,206 @@ public class DungeonAdventure
 		Dungeon startingDungeon = new Dungeon(5,5);
 		Room[][] dungeon = startingDungeon.createDungeon();
 		
-		
-		//dungeon.printDungeon();
-		
-		
-		
-		//movePlayer(theHero, dungeon);
 		do
 		{
+			
 			theHero = factory.createHero();
 			dungeon[0][0].spawn(theHero);
 			Room location = startingDungeon.playerLocation(x, y, dungeon);
 			System.out.println("You wake up in a dark room...\n\n");
-			
+			theHero.setNumOfVision(1);
 			
 			do {
-				char direction = movePlayer(theHero, location);
-				if(direction == 'N') {
+				char choice = movePlayer(theHero, location);
+				if(choice == 'N') {
 					Hero temp = (Hero) location.map.get("Hero");
 					location.map.remove("Hero");
-					location = startingDungeon.playerLocation(x--, y, dungeon);
+					location = startingDungeon.playerLocation(--x, y, dungeon);
 					location.map.put("Hero", temp);
 					enterRoom(location);
 				}
-				if(direction == 'E') {
+				if(choice == 'E') {
 					Hero temp = (Hero) location.map.get("Hero");
 					location.map.remove("Hero");
 					location = startingDungeon.playerLocation(x, ++y, dungeon);
 					location.map.put("Hero", temp);
 					enterRoom(location);
 				}
-				if(direction == 'S') {
+				if(choice == 'S') {
 					Hero temp = (Hero) location.map.get("Hero");
 					location.map.remove("Hero");
-					location = startingDungeon.playerLocation(x++, y, dungeon);
+					location = startingDungeon.playerLocation(++x, y, dungeon);
 					location.map.put("Hero", temp);
 					enterRoom(location);
 				}
-				if(direction == 'W') {
+				if(choice == 'W') {
 					Hero temp = (Hero) location.map.get("Hero");
 					location.map.remove("Hero");
-					location = startingDungeon.playerLocation(x, y--, dungeon);
+					location = startingDungeon.playerLocation(x, --y, dungeon);
 					location.map.put("Hero", temp);
 					enterRoom(location);
 				}
-				if(direction == 'F') {
+				if(choice == 'P') {
+					//int rn = new Random().nextInt(30);
+					int rn = (int)(Math.random() * (30 - 15 + 1)) + 15;
+					theHero.addHitPoints(rn);
+					System.out.println("------------------------------------------\n");
+					System.out.println("You drink the mysterious liquid and begin to feel refurbished...\n"
+										+ "Your wounds begin to heal and you get a burst of energy!\n"
+										+ "You gain " + rn + " health points! "
+										+ " Now you have " + theHero.getHitPoints()
+										+ "\n----------------------------------------\n");
+				}
+				if(choice == 'V') {
+					int tempUlX = x;
+					int tempUlY = y;
+					int tempNX = x;
+					int tempNY = y;
+					int tempUrX = x;
+					int tempUrY = y;
+					int tempWX = x;
+					int tempWY = y;
+					int tempCurX = x;
+					int tempCurY = y;
+					int tempEX = x;
+					int tempEY = y;
+					int tempBlX = x;
+					int tempBlY = y;
+					int tempSX = x;
+					int tempSY = y;
+					int tempBrX = x;
+					int tempBrY = y;
+					//upper left
+					System.out.print(visionOutput(--tempUlX, --tempUlY, startingDungeon, dungeon));
+					System.out.print("      ");
+					//direct North
+					System.out.print(visionOutput(--tempNX, tempNY, startingDungeon, dungeon));
+					System.out.print("      ");
+					//upper right
+					System.out.println(visionOutput(--tempUrX, ++tempUrY, startingDungeon, dungeon));
+					
+					
+					//West
+					System.out.print(visionOutput(tempWX, --tempWY, startingDungeon, dungeon));
+					System.out.print("      ");
+					//cur
+					System.out.print(visionOutput(tempCurX, tempCurY, startingDungeon, dungeon));
+					System.out.print("      ");
+					//East
+					System.out.println(visionOutput(tempEX, ++tempEY, startingDungeon, dungeon));
+					
+					//bottom left
+					System.out.print(visionOutput(++tempBlX, --tempBlY, startingDungeon, dungeon));
+					System.out.print("      ");
+					//South
+					System.out.print(visionOutput(++tempSX, tempSY, startingDungeon, dungeon));
+					System.out.print("      ");
+					
+					//bottom right
+					System.out.println(visionOutput(++tempBrX, ++tempBrY, startingDungeon, dungeon));
+					
+				}
+				if(choice == 'F') {
 					System.out.println("Please choose N--S--E--W\n\n");
 				}
 
-			} while(!location.map.containsValue(500));
+			} while(!location.map.containsValue(500) || theHero.hitPoints == 0);
 			
 
 		} while (playAgain());
 
     }//end main method
     
+   public static String visionOutput(int x, int y, Dungeon dungeon, Room[][] room) throws ArrayIndexOutOfBoundsException{
+	   
+	   try {
+		   Room location = dungeon.playerLocation(x, y, room);
+		    return location.toString();
+	   } catch(Exception e) {
+		   return "WALL";
+	   }
+   }
     
    public static char movePlayer(Hero player, Room cur) throws Exception{
 	   Scanner kin = new Scanner(System.in);
 	   System.out.println("Current Room: ");
 	   System.out.println(cur.toString() + "\n");
-	   System.out.println("Which direction do you want to go?: \n"
-							+ "N--S--E--W? ");
+	   System.out.println("What do you wish to do?:\n"
+			   				+ "Move Character? -> M\n"
+			   				+ "Check inventory? -> I\n"
+			   				+ "Save Game? -> S\n");
+
 	   
 	   char c = kin.next().charAt(0);
 	   char e = Character.toUpperCase(c);
 	   
-							
-		if(e == 'N') {
-			if(cur.getN() == 1) {
-				System.out.println("You ran into a wall, choose another direction.");
-			} 
-			else {
-				return 'N';
-			}
-
-		}
-		else if(c == 'E') {
-			if(cur.getE() == 1) {
-				System.out.println("You ran into a wall, choose another direction.");
-			} 
-			else {
-				return 'E';
-			}
-		}
-		else if(c == 'S') {
-			if(cur.getS() == 1) {
-				System.out.println("You ran into a wall, choose another direction.");
-			} 
-			else {
-				return 'S';
-			}
-		}
-
+	   //check health potions
+	   do {
+		   if(e == 'I') {
+			   Scanner scan = new Scanner(System.in);
+			   System.out.println("-------------------------------------------");
+			   System.out.println("Items in inventory:\n");
+			   System.out.println("Healing Potions: " + player.getNumOfHealing() + "\n"
+					   				+ "Pillars: " + player.getNumOfPiller() + "\n"
+					   				+"Vision Potions: " + player.getNumOfVision() + "\n"
+					   				+ "------------------------------------------\n");
+			   System.out.println("Drink Healing Potion? -> H\n"
+					   				+ "Drink Vision Potion? -> V\n"
+				    				+ "Go back? -> B\n");
+			  
+			   char test = scan.next().charAt(0);
+			   char input = Character.toUpperCase(test);
+			   do {
+				    
 		
-		else if(e == 'E') {
+				   if(input == 'H') {
+					   if(player.getNumOfHealing() == 0) {
+						   System.out.println("You do not have any Health Potions :(\n");
+						   return 'B';
+					   } else {
+						   return 'P';
+					   } 
+				   }
+				   if(input == 'V') {
+					   if(player.getNumOfVision() == 0) {
+						   System.out.println("You do not have any Vision Potions :(\n");
+						   return 'B';
+					   } else {
+						   return 'V';
+					   }
+				   }
+				   if(input == 'B') {
+					   System.out.println("\n");
+					   return 'B';
+					  
+				   }
+				   else {
+					   System.out.println("Please select an available option.\n");
+				   }
+			   } while(input != 'B');
+			   
+		  }
+	   } while (e != 'M');
+	   
+	  
+	   Scanner kb = new Scanner(System.in);
+	   System.out.println("Which direction do you want to go?: \n"
+				+ "N--S--E--W? ");
+	   
+	   char o = kb.next().charAt(0);
+	   char key = Character.toUpperCase(o);
+	  
+	   
+	   if(key == 'N') {
+		   if(cur.getN() == 1) {
+			System.out.println("You ran into a wall, choose another direction.");
+		   } 
+		   else {
+			return 'N';
+		   }
+
+	   }
+	   else if(key == 'E') {
 			if(cur.getE() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -170,7 +268,7 @@ public class DungeonAdventure
 				return 'E';
 			}
 		}
-		else if(e == 'S') {
+		else if(key == 'S') {
 			if(cur.getS() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
 			} 
@@ -178,7 +276,7 @@ public class DungeonAdventure
 				return 'S';
 			}
 		}
-		else if(c == 'W') {
+		else if(key == 'W') {
 
 			if(cur.getW() == 1) {
 				System.out.println("You ran into a wall, choose another direction.");
@@ -187,6 +285,8 @@ public class DungeonAdventure
 				return 'W';
 			}
 		}
+	 
+		
 		
 		char incorrect = 'F';
 		return incorrect;
@@ -218,22 +318,29 @@ public class DungeonAdventure
 		if(room.map.containsKey("Monster")) {
 			Monster monster = (Monster) room.map.get("Monster");
 			battle(player, monster);
+			room.map.remove("Monster");
 		}
 		if(room.map.containsKey("Pit")) {
 			System.out.println("You fall 15 feet into a pit." + "\n");
 			int rn = new Random().nextInt(30);
 			player.subtractHitPoints(rn);
-			System.out.println("Your health is " + player.hitPoints);
+			
 		}
 		if(room.map.containsKey("Health Potion")) {
-			int rn = new Random().nextInt(30);
-			player.addHitPoints(rn);
-			System.out.println("You drink a suspicious liquid...but feel a burst of energy. \n"
-					+ "Your wounds begin to close as your health has increased by " + rn);
-			System.out.println("Your health is " + player.hitPoints);
+			player.setNumOfHealing(player.getNumOfHealing() + 1);
+			room.map.remove("Health Potion");
+			System.out.println("You have found a Health Potion!\n"
+								+ "Now you have " + player.getNumOfHealing() + "!");
+		}
+		if(room.map.containsKey("Vision Potion")) {
+			player.setNumOfVision(player.getNumOfVision() + 1);
+			room.map.remove("Vision Potion");
+			System.out.println("You have found a Vision Potion!\n"
+					+ "Now you have " + player.getNumOfVision() + "!");
 		}
 		if(room.map.containsKey("Pillar")) {
 			player.setNumOfPiller(player.getNumOfPiller() + 1);
+			room.map.remove("Pillar");
 			System.out.println("Congratulations! You have found a Pillar. \n"
 								+ "Your total amount of Pillars is " + player.getNumOfPiller() + ".");
 		}
@@ -245,11 +352,11 @@ public class DungeonAdventure
 			if(kb.next().equalsIgnoreCase("Y")) {
 				if(player.getNumOfPiller() == 1) {
 					System.out.println("You miscreant. You only have " + player.getNumOfPiller()
-					+ "Pillar!");
+					+ " Pillar!");
 				}
 				else if(player.getNumOfPiller() < 4) {
 				System.out.println("You miscreant. You only have " + player.getNumOfPiller()
-									+ "Pillars!");
+									+ " Pillars!");
 				}
 				else {
 					System.out.println("Congratulations! You have escaped the dungeon!");
@@ -289,7 +396,7 @@ user has the option of quitting.
 
 			//monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
-				MonsterAttackFactory.getBaseAttack("Base Attack ").attack(theHero, theMonster);;
+				MonsterAttackFactory.getBaseAttack("Base Attack ").attack(theMonster, theHero);;
 			    //theMonster.attack(theHero);
 
 			//let the player bail out if desired
@@ -307,6 +414,7 @@ user has the option of quitting.
 
 	}//end battle method
 	
+	//Done by Md Abul Kashem
 	public static void saveGame(Hero player, Dungeon dungeon){
 		CareTaker caretaker = new CareTaker();
 		caretaker.SavedToFile(player.name, player.getNumOfHealing(), player.getNumOfVision(), player.getNumOfPiller());
@@ -323,6 +431,7 @@ user has the option of quitting.
 	      }
 		
 	}
+	//Done by Md Abul Kashem
 	public static Dungeon loadGame(Hero player){
 		CareTaker caretaker = new CareTaker();
 		player.name=caretaker.loadState().getNameOfHero();

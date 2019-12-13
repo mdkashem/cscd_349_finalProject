@@ -1,6 +1,8 @@
 package dungeon;
 import java.util.Random;
 import java.util.Scanner;
+
+//Done by Kobe Kupp
 	public class Dungeon {
 
 		
@@ -105,14 +107,93 @@ import java.util.Scanner;
 		return room[x][y];
 	}
 	
-	public void printDungeon() {
+	public void printDungeon(Room[][] room) {
 		
 		for(int row1 = 0; row1 < col; row1++) {
     		for(int col1 = 0; col1 < row; col1++) {
-    			this.toString();
+    			System.out.println(room.toString());
     		}
 		}
 
 	}
+	
+	
+	
+//	  Scanner kin = new Scanner(System.in);
+//	   System.out.println("Current Room: ");
+//	   System.out.println(cur.toString() + "\n");
+//	   System.out.println("What do you wish to do?:\n"
+//			   				+ "Drink Potion? -> P\n"
+//			   				+ "Move Character? -> M\n"
+//			   				+ "Check inventory? -> I\n"
+//			   				+ "Save Game? -> S\n");
+//
+//	   
+//	   char c = kin.next().charAt(0);
+//	   char e = Character.toUpperCase(c);
+//	   
+//	   //check health potions
+//	   if(e == 'I') {
+//		   System.out.println("Items in inventory:\n");
+//		   System.out.println(player.getNumOfHealing() + ": Healing Potion.\n"
+//				   				+ player.getNumOfPiller() + ": Pillars.\n"
+//				   				+ player.getNumOfVision() + ": Vision Potion.\n");
+//		  if(player.getNumOfHealing() == 0) {
+//			  System.out.println("You do not have any potions :(\n");
+//			  return 'M';
+//		  }
+//		  else {
+//			  return 'P';
+//		  }
+//	   }
+//	   else if(e == 'M') {
+//		   Scanner kb = new Scanner(System.in);
+//		    System.out.println("Which direction do you want to go?: \n"
+//					+ "N--S--E--W? ");
+//		   
+//		   char o = kb.next().charAt(0);
+//		   char key = Character.toUpperCase(o);
+//		  
+//		   
+//		   if(key == 'N') {
+//			   if(cur.getN() == 1) {
+//				System.out.println("You ran into a wall, choose another direction.");
+//			} 
+//			else {
+//				return 'N';
+//			}
+//
+//		}
+//			else if(key == 'E') {
+//				if(cur.getE() == 1) {
+//					System.out.println("You ran into a wall, choose another direction.");
+//				} 
+//				else {
+//					return 'E';
+//				}
+//			}
+//			else if(key == 'S') {
+//				if(cur.getS() == 1) {
+//					System.out.println("You ran into a wall, choose another direction.");
+//				} 
+//				else {
+//					return 'S';
+//				}
+//			}
+//			else if(key == 'W') {
+//	
+//				if(cur.getW() == 1) {
+//					System.out.println("You ran into a wall, choose another direction.");
+//				} 
+//				else {
+//					return 'W';
+//				}
+//			}
+//	   }
+//		
+//		
+//		char incorrect = 'F';
+//		return incorrect;
+//  }
 
 }
